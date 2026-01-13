@@ -8,7 +8,7 @@ Do you love flags? Do you love wordle and other fun newyorktimes games? This web
 
 ### Design
 
-![Design image](login.png)
+![Design image](Login.png)
 
 When the user gets to the website they will see this login page. This will be the first page they see. 
 
@@ -28,6 +28,9 @@ After a second guess the user still retains the red revealed from the previous g
 
 The flag on the right will match the flag on the left when the user gets their guess correct
 
+![Design image](Leaderboard.png)
+
+The user can navigate to the leaderboard from the main page through a button labeled leaderboard.
 
 ```mermaid
 sequenceDiagram
