@@ -32,15 +32,18 @@ After a second guess the user still retains the red revealed from the previous g
 
 The flag on the right will match the flag on the left when the user gets their guess correct
 
-![Design image](Leaderboard.png)
+![Design image](leaderboard.png)
 
-The user can navigate to the leaderboard from the main page through a button labeled leaderboard.
+The user can navigate to the leaderboard from the main page through a button labeled leaderboard. The back button navigates back to the main page.
 
 ```mermaid
 sequenceDiagram
-    actor You
+    actor User
     actor Website
-    You->>Website: Replace this with your design
+    User->>Website: Send flag guess (string)
+    Website->>User: Return Image & Result False
+    User->>Website: Send flag guess (string)
+    Website->>User: Return Image & Result True
 ```
 
 ### Key features
