@@ -4,19 +4,6 @@
 
 This game is just like wordle, but with flags. You guess a flag and see how close you are. The game will display the colors of the flag that you got correct. You keep guessing until you get the daily flag.
 
-## 🚀 Specification Deliverable
-
-> [!NOTE]
-> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
-
 ### Elevator pitch
 
 Do you love flags? Do you love wordle and other fun newyorktimes games? This website combines your love of flags with a simple game. Your goal is to guess the daily flag in as few guesses as possible. After each guess the matching parts of your flag and the daily flag are revealed to you, giving you more information. Keep guessing until you get the daily flag!
@@ -62,12 +49,25 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
+- **HTML** - HTML is used in the navigation between pages. These pages will be: login, create account, main page and leaderboard page
 - **CSS** - Description here
 - **React** - Description here
 - **Service** - Description here
 - **DB/Login** - Description here
 - **WebSocket** - Description here
+
+## 🚀 Specification Deliverable
+
+> [!NOTE]
+> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
+
+For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+
+- [ ] Proper use of Markdown
+- [ ] A concise and compelling elevator pitch
+- [ ] Description of key features
+- [ ] Description of how you will use each technology
+- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ## 🚀 AWS deliverable
 
