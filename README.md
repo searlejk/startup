@@ -61,7 +61,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - HTML will be used to route players between pages. There will be a login page, create account page, game page and leaderboard page. 
 - **CSS** - CSS is essential in the styling of the page and also visual adaptation for mobile. This website should look presentable on mobile as that is going to be the most common platform.
 - **React** - React will update the user's end to display the updated flag. It will also create the session and allow the user to rejoin that session.
-- **Service** - Services that I will use are logging in, creating an account, update profile statistics, update leaderboard
+- **Service** - Services that I will use are logging in, creating an account, update profile statistics, update leaderboard. I will also use an API call to get a map of the country that matches the flag of the day with this link: https://github.com/lennertVanSever/graphcountries
 - **DB/Login** - DB will store the user's login information and statistics. It will be used to authenticate their login as well.
 - **WebSocket** - Times and guess count will notify to all players to update the leaderboard. It will also notify the user of each individual that completes the flaggle while they are on the main page or leaderboard page.
 
