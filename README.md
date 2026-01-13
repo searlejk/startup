@@ -8,9 +8,13 @@ Do you love flags? Do you love wordle and other fun newyorktimes games? This web
 
 ### Design
 
-![Design image](Login.png)
+![Design image](login.png)
 
-When the user gets to the website they will see this login page. This will be the first page they see. 
+When the user gets to the website they will see this login page. This will be the first page they see. They can click create account for first time visit.
+
+![Design image](create_account.png)
+
+After creating an account the website will direct you to the main page.
 
 ![Design image](game_1.png)
 
