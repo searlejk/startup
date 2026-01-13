@@ -4,9 +4,6 @@
 
 This game is just like wordle, but with flags. You guess a flag and see how close you are. The game will display the colors of the flag that you got correct. You keep guessing until you get the daily flag.
 
-> [!NOTE]
-> If you are not familiar with Markdown then you should review the [documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before continuing.
-
 ## 🚀 Specification Deliverable
 
 > [!NOTE]
@@ -26,9 +23,25 @@ Do you love flags? Do you love wordle and other fun newyorktimes games? This web
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](login.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+When the user gets to the website they will see this login page. This will be the first page they see. 
+
+![Design image](game_1.png)
+
+After the user logs in to their account they will be brought to this page. The user can enter in a flag type to the text box. Then they will click the guess button which will submit their guess.
+
+![Design image](game_2.png)
+
+The website will display all locations where the color matches between the guess and the flag of the day. For example the red and white are displayed, while the rest is blacked out.
+
+![Design image](game_3.png)
+
+After a second guess the user still retains the red revealed from the previous guess. The user also reveals the white column in the flag with their guess.
+
+![Design image](game_4.png)
+
+The flag on the right will match the flag on the left when the user gets their guess correct
 
 ```mermaid
 sequenceDiagram
