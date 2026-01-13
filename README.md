@@ -1,7 +1,5 @@
 # Flaggle Game
 
-[My Notes](notes.md)
-
 This game is just like wordle, but with flags. You guess a flag and see how close you are. The game will display the colors of the flag that you got correct. You keep guessing until you get the daily flag.
 
 ### Elevator pitch
