@@ -8,31 +8,31 @@ Do you love flags? Do you love wordle and other fun newyorktimes games? This web
 
 ### Design
 
-![Design image](login.png)
+![Login_image](login.png)
 
 When the user gets to the website they will see this login page. This will be the first page they see. They can click create account for first time visit.
 
-![Design image](create_account.png)
+![Create_Account_image](create_account.png)
 
 After creating an account the website will direct you to the main page.
 
-![Design image](game_1.png)
+![Game_Seq_image_1](game_1.png)
 
 After the user logs in to their account they will be brought to this page. The user can enter in a flag type to the text box. Then they will click the guess button which will submit their guess.
 
-![Design image](game_2.png)
+![Game_Seq_image_2](game_2.png)
 
 The website will display all locations where the color matches between the guess and the flag of the day. For example the red and white are displayed, while the rest is blacked out.
 
-![Design image](game_3.png)
+![Game_Seq_image_3](game_3.png)
 
 After a second guess the user still retains the red revealed from the previous guess. The user also reveals the white column in the flag with their guess.
 
-![Design image](game_4.png)
+![Game_Seq_image_4](game_4.png)
 
 The flag on the right will match the flag on the left when the user gets their guess correct
 
-![Design image](leaderboard.png)
+![Leaderboard_image](leaderboard.png)
 
 The user can navigate to the leaderboard from the main page through a button labeled leaderboard. The back button navigates back to the main page.
 
