@@ -30,6 +30,7 @@ After a second guess the user still retains the red revealed from the previous g
 
 The flag on the right will match the flag on the left when the user gets their guess correct
 
+
 ```mermaid
 sequenceDiagram
     actor You
@@ -49,35 +50,26 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - HTML is used in the navigation between pages. These pages will be: login, create account, main page and leaderboard page
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - HTML will be used to route players between pages. There will be a login page, create account page, game page and leaderboard page. 
+- **CSS** - CSS is essential in the styling of the page and also visual adaptation for mobile. This website should look presentable on mobile as that is going to be the most common platform.
+- **React** - React will update the user's end to display the updated flag. It will also create the session and allow the user to rejoin that session.
+- **Service** - Services that I will use are logging in, creating an account, update profile statistics, update leaderboard
+- **DB/Login** - DB will store the user's login information and statistics. It will be used to authenticate their login as well.
+- **WebSocket** - Times and guess count will notify to all players to update the leaderboard. It will also notify the user of each individual that completes the flaggle while they are on the main page or leaderboard page.
 
 ## 🚀 Specification Deliverable
 
-> [!NOTE]
-> Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ## 🚀 AWS deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
 
 ## 🚀 HTML deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] **HTML pages** - I did not complete this part of the deliverable.
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
@@ -91,8 +83,6 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ## 🚀 CSS deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
 - [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
 - [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
 - [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
@@ -102,22 +92,16 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ## 🚀 React part 1: Routing deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
 - [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
 - [ ] **Components** - I did not complete this part of the deliverable.
 - [ ] **Router** - I did not complete this part of the deliverable.
 
 ## 🚀 React part 2: Reactivity deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
 - [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
 - [ ] **Hooks** - I did not complete this part of the deliverable.
 
 ## 🚀 Service deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
 - [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
@@ -128,14 +112,10 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ## 🚀 DB deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
 - [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
 - [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
 
 ## 🚀 WebSocket deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
 - [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
