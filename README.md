@@ -75,7 +75,7 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 AWS deliverable
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://flagle.click/).
 
 ## 🚀 HTML deliverable
 
