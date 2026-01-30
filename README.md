@@ -86,7 +86,7 @@ I am going to use the required technologies in the following ways.
 - Daily and Unlimited Flagle will be duplicates but should add to different numbers in the DB
 
 - [x] **HTML pages** - I have Five HTML pages. 
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
+- [x] **Proper HTML element usage** - I used BODY, TABLE, NAV, MAIN, HEADER and FOOTER. I kept my FOOTER simple with a link to my github on each page. The HEADER is the same on each page with links to all necessary pages. I used BODY for all content between the HEADER and FOOTER. I used NAV with a MENU in the same style as the Simon demo inside the HEADER. I was able to use TABLE for both the leaderboard and the placeholder for my flags in daily.html and unlimited.html
 - [x] **Links** - Links are found at the top of the page to navigate between Leaderboard, Home, Daily and Unlimited
 - [x] **Text** - Flag guesses are displayed as text on the daily.html and unlimited.html screen
 - [x] **3rd party API placeholder** - I was able to do a 3rd party API call to flagsapi.com on my leaderboard page for each player's country flag
