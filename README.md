@@ -79,7 +79,10 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 HTML deliverable
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
+# Notes
+- 
+
+- [x] **HTML pages** - I have Four HTML pages, the main being named index.html.
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
 - [ ] **Links** - I did not complete this part of the deliverable.
 - [ ] **Text** - I did not complete this part of the deliverable.
