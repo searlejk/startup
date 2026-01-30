@@ -80,7 +80,8 @@ I am going to use the required technologies in the following ways.
 ## 🚀 HTML deliverable
 
 # Notes
-- 
+- I will want to remember how my API request works for flagsAPI
+- Here is an example: https://flagsapi.com/AU/flat/32.png This gets the Australian flag
 
 - [x] **HTML pages** - I have Four HTML pages. 
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
