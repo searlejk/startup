@@ -86,7 +86,7 @@ I am going to use the required technologies in the following ways.
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
 - [x] **Links** - Links are found at the top of the page to navigate between leaderboard, home and play
 - [x] **Text** - Flag guesses are displayed as text on the play.html screen
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **3rd party API placeholder** - I was able to do a 3rd party API call to flagsapi.com on my leaderboard page for each player's country flag
 - [x] **Images** - I added a flag banner image seen at the top of every page. I also use svg for my drawing of my flags on the play.html screen
 - [x] **Login placeholder** - I have a login placeholder on the index.html page and a create account placeholder on the create_account.html
 - [ ] **DB data placeholder** - I did not complete this part of the deliverable.
