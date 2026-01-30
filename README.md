@@ -82,13 +82,13 @@ I am going to use the required technologies in the following ways.
 # Notes
 - 
 
-- [x] **HTML pages** - I have Four HTML pages, the main being named index.html.
+- [x] **HTML pages** - I have Four HTML pages. 
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
 - [ ] **Links** - I did not complete this part of the deliverable.
 - [ ] **Text** - I did not complete this part of the deliverable.
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
+- [x] **Login placeholder** - I have a login placeholder on the index.html page and a create account placeholder on the create_account.html
 - [ ] **DB data placeholder** - I did not complete this part of the deliverable.
 - [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
