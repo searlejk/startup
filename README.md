@@ -89,7 +89,7 @@ I am going to use the required technologies in the following ways.
 - [x] **3rd party API placeholder** - I was able to do a 3rd party API call to flagsapi.com on my leaderboard page for each player's country flag
 - [x] **Images** - I added a flag banner image seen at the top of every page. I also use svg for my drawing of my flags on the play.html screen
 - [x] **Login placeholder** - I have a login placeholder on the index.html page and a create account placeholder on the create_account.html
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - The DB data placeholder is the leaderboard information, player rank, country, name, daily streak and starting date are all stored in the database
 - [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
 ## 🚀 CSS deliverable
