@@ -90,7 +90,7 @@ I am going to use the required technologies in the following ways.
 - [x] **Images** - I added a flag banner image seen at the top of every page. I also use svg for my drawing of my flags on the play.html screen
 - [x] **Login placeholder** - I have a login placeholder on the index.html page and a create account placeholder on the create_account.html
 - [x] **DB data placeholder** - The DB data placeholder is the leaderboard information, player rank, country, name, daily streak and starting date are all stored in the database
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [ ] **WebSocket placeholder** - The community total will update from WebSocket game completions. In addition to that my play.html screen will show players starting and completing games from WebSockets
 
 ## 🚀 CSS deliverable
 
