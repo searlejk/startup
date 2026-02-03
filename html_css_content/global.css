@@ -20,15 +20,17 @@ input {
 
 form {
     background-color: #1d2b36;
-    max-width: 350px;
     padding: 50px;
-    border-radius: 15px;
+    border-radius: 25px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border: 1px solid #2c3e50;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-top: 20px;
+    margin-bottom: 40%;
 }
+
 
 main {
   flex: 1 calc(100vh - 110px);
