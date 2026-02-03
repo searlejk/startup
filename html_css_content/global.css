@@ -23,6 +23,10 @@ footer {
 }
 
 /* Top Menu Bar section */
+.curr_page{
+    background-color: #111111;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
