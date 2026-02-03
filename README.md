@@ -97,6 +97,9 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 CSS deliverable
 
+Notes/Prerequisites:
+[x] - I added the simon CSS to my website
+
 - [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
 - [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
 - [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
