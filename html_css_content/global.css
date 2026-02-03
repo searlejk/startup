@@ -38,6 +38,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin: 0;
 }
 
 
@@ -87,6 +88,8 @@ footer {
 footer a {
   color: white;
   float: right;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 
 @media (max-height: 600px) {
