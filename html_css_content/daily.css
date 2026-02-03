@@ -23,6 +23,9 @@ footer {
 }
 
 /* Top Menu Bar section */
+.curr_page{
+  background-color: #1c1f8f;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -41,12 +44,12 @@ ul li a{
 ul li h3{
   display: block;
   color: white;
+  font-weight: bold;
   padding: 19px 19px;
   text-decoration: none;
   margin: 0;
   font-size: 1rem;
 }
-
 
 ul li a:hover {
   background-color: #111111;
