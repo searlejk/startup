@@ -97,10 +97,18 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 CSS deliverable
 
-Notes/Prerequisites:
+Notes
+- I need to remember the styling colors that I've used:
+Footer/menu bar: background-color: #212121
+Menu hover/curr_page: background-color: #111111
+
+
+
+Prerequisites:
 [x] - I added the simon CSS to my website
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
+
+- [x] **Visually appealing colors and layout. No overflowing elements.** - I use calm darker colors. Everything is contained to the screen. The layout is simple and easy to navigate.
 - [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
 - [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
 - [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
