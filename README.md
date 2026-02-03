@@ -102,7 +102,7 @@ Notes
 Footer/menu bar: background-color: #212121
 Menu hover/curr_page: background-color: #111111
 
-- This is my boostrap link: https://codepen.io/Searlejk/pen/wBWXqBB
+- This is my codepen link from practice: https://codepen.io/Searlejk/pen/wBWXqBB
 
 
 
@@ -111,7 +111,7 @@ Prerequisites:
 
 
 - [x] **Visually appealing colors and layout. No overflowing elements.** - I use calm darker colors. Everything is contained to the screen. The layout is simple and easy to navigate.
-- [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
+- [x] **Use of a CSS framework** - I used the CSS framework for basic bootstrap to make fonts and other details more standardized
 - [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
 - [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
 - [ ] **Use of a imported font** - I did not complete this part of the deliverable.
