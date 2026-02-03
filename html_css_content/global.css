@@ -78,6 +78,10 @@ ul li a:hover {
 }
 /* Top Menu Bar section */
 
+.table.table-dark.table-striped {
+    width: 90%;
+}
+
 footer {
   flex: 0 30px;
   background-color: #212121;
