@@ -22,24 +22,9 @@ footer {
   flex: 0 30px;
 }
 
-menu {
-  flex: 1;
-  display: flex;
-  /*  overwrite Bootstrap so the menu does not wrap */
-  flex-direction: row !important;
-  list-style: none;
-}
-
 .navbar-brand {
   padding-left: 0.3em;
   border-bottom: solid rgb(182, 182, 182) thin;
-}
-
-menu .nav-item {
-  padding: 0 0.3em;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 ul {
