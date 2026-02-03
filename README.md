@@ -102,6 +102,8 @@ Notes
 Footer/menu bar: background-color: #212121
 Menu hover/curr_page: background-color: #111111
 
+- This is my boostrap link: https://codepen.io/Searlejk/pen/wBWXqBB
+
 
 
 Prerequisites:
