@@ -22,11 +22,7 @@ footer {
   flex: 0 30px;
 }
 
-.navbar-brand {
-  padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
-}
-
+/* Top Menu Bar section */
 ul {
   list-style-type: none;
   margin: 0;
@@ -45,6 +41,7 @@ ul li a {
 ul li a:hover {
   background-color: #111111;
 }
+/* Top Menu Bar section */
 
 footer a {
   float: right;
