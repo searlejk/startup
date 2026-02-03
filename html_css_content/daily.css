@@ -31,17 +31,28 @@ ul {
   display: flex;
 }
 
-ul li a {
+ul li a{
   display: block;
   color: white;
   padding: 19px 19px;
   text-decoration: none;
 }
 
+ul li h3{
+  display: block;
+  color: white;
+  padding: 19px 19px;
+  text-decoration: none;
+  margin: 0;
+  font-size: 1rem;
+}
+
+
 ul li a:hover {
   background-color: #111111;
 }
 /* Top Menu Bar section */
+
 footer a {
   float: right;
 }
