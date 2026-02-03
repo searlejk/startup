@@ -4,10 +4,30 @@ body {
   background-color: #37474f;
   color: #eeeeee;
   min-width: 375px;
+  padding: 0;
+  margin: 0;
 }
 
 header {
   flex: 0 80px;
+}
+
+input {
+  border-radius: 8px;
+  width: 200px;
+  height: 30px;
+}
+
+form {
+    background-color: #1d2b36;
+    max-width: 350px;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid #2c3e50;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 main {
@@ -18,9 +38,7 @@ main {
   justify-content: space-around;
 }
 
-footer {
-  flex: 0 30px;
-}
+
 
 /* Top Menu Bar section */
 .curr_page{
@@ -57,7 +75,15 @@ ul li a:hover {
 }
 /* Top Menu Bar section */
 
+footer {
+  flex: 0 30px;
+  background-color: #212121;
+  padding: 0;
+  margin: 0;
+}
+
 footer a {
+  color: white;
   float: right;
 }
 
