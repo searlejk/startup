@@ -32,19 +32,18 @@ form {
 }
 
 .flag_banner {
-  text-align: center;
+  max-width: 100%;
   padding: 0px;
   margin: 0;
   position: absolute;
   top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
+  overflow: hidden;
+  text-align:center;
 }
 
 #leaderboard_data{
     display: flex;
     padding-bottom: 900;
-
 }
 
 .form-floating.mb-3{
