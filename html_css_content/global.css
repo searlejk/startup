@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 body {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,8 @@ body {
   min-width: 375px;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 header {
@@ -32,7 +36,6 @@ form {
 }
 
 .container.text-center {
-
     max-width: 700px;
     width: 95%;
     padding: 10px;
@@ -76,6 +79,11 @@ main {
 
 .input-group.mb-3 {
     width: 40%;
+}
+
+.form-control, .btn {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600;
 }
 
 /* Top Menu Bar section */

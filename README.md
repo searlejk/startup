@@ -114,7 +114,7 @@ Prerequisites:
 - [x] **Use of a CSS framework** - I used the CSS framework for basic bootstrap to make fonts and other details more standardized. This helped with buttons and input boxes.
 - [x] **All visual elements styled using CSS** - I styled every part of this website either in CSS or by using a boostrap style.
 - [x] **Responsive to window resizing using flexbox and/or grid display** - By adding flex to my css I was able to make sure it adapted to window resizing.
-- [ ] **Use of a imported font** - I did not complete this part of the deliverable.
+- [x] **Use of a imported font** - I added a semi-bold Montserrat font from google. I applied it to everything.
 - [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I used each of these in my css code. My pseduo selector was hover, my ID was
 
 ## 🚀 React part 1: Routing deliverable
