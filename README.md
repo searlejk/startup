@@ -112,7 +112,7 @@ Prerequisites:
 
 - [x] **Visually appealing colors and layout. No overflowing elements.** - I use calm darker colors. Everything is contained to the screen. The layout is simple and easy to navigate.
 - [x] **Use of a CSS framework** - I used the CSS framework for basic bootstrap to make fonts and other details more standardized. This helped with buttons and input boxes.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
+- [x] **All visual elements styled using CSS** - I styled every part of this website either in CSS or by using a boostrap style.
 - [x] **Responsive to window resizing using flexbox and/or grid display** - By adding flex to my css I was able to make sure it adapted to window resizing.
 - [ ] **Use of a imported font** - I did not complete this part of the deliverable.
 - [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I used each of these in my css code. My pseduo selector was hover, my ID was
