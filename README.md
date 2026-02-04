@@ -104,6 +104,8 @@ Menu hover/curr_page: background-color: #111111
 
 - This is my codepen link from practice: https://codepen.io/Searlejk/pen/wBWXqBB
 
+- This is my link to the other codepen practice: https://codepen.io/Searlejk/pen/pvbKawO?editors=0100
+
 
 
 Prerequisites:
