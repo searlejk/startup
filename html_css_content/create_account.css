@@ -1,3 +1,4 @@
+/* fixed the window resizing problem */
 main {
   justify-content: flex-start !important;
 }
