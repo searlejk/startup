@@ -42,7 +42,9 @@ main {
   margin: 0;
 }
 
-
+.input-group.mb-3 {
+    width: 40%;
+}
 
 /* Top Menu Bar section */
 .curr_page{
