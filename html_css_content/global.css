@@ -13,15 +13,21 @@ header {
 }
 
 form {
+    display: flex;
     background-color: #1d2b36;
     padding: 50px;
     border-radius: 25px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border: 1px solid #2c3e50;
-    display: flex;
     flex-direction: column;
     gap: 15px;
     margin-bottom: 40%;
+}
+
+#leaderboard_data{
+    display: flex;
+    padding-bottom: 900;
+
 }
 
 .form-floating.mb-3{
@@ -31,7 +37,6 @@ form {
 .form-floating {
     color: gray;
 }
-
 
 main {
   flex: 1 calc(100vh - 110px);
@@ -75,9 +80,19 @@ ul li h3{
   font-size: 1rem;
 }
 
+.username {
+  display: block;
+  margin-left: auto;
+  text-align: right;
+  color: white;
+  padding: 19px 19px;
+  text-decoration: none;
+  font-size: 1rem;
+}
 
 ul li a:hover {
   background-color: #111111;
+  color: rgb(177, 177, 177);
 }
 /* Top Menu Bar section */
 

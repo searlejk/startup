@@ -21,6 +21,8 @@
           <li><a href="daily.html">Daily</a></li>
           <li><a href="unlimited.html">Unlimited</a></li>
           <li class="curr_page"><a href="leaderboard.html">Leaderboard</a></li>
+
+          <li class="username">username</li>
         </ul>
       </nav>
     </header>
@@ -31,12 +33,11 @@
       
       <!-- This number will be pulled from the Database data, updated from the WebSocket data -->
       <h1>Community: 9,347 games played</h1>
-      <h1>Leaderboard</h1>
       <!-- Leaderboard data will be pulled from the Database data -->
       <!-- I will use an API to pull a flag image for the correct country for each player -->
       <!-- I will use the flagsAPI website --> 
       <!-- https://flagsapi.com/:country_code/:style/:size.png -->
-      <table class="table table-dark table-striped">
+      <table id="leaderboard-data" class="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
