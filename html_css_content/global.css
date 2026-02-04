@@ -12,12 +12,6 @@ header {
   flex: 0 80px;
 }
 
-input {
-  border-radius: 8px;
-  width: 200px;
-  height: 30px;
-}
-
 form {
     background-color: #1d2b36;
     padding: 50px;
@@ -27,8 +21,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding-top: 20px;
     margin-bottom: 40%;
+}
+
+.form-floating.mb-3{
+    color: gray;
+}
+
+.form-floating {
+    color: gray;
 }
 
 
