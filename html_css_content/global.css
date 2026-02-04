@@ -14,6 +14,8 @@ header {
 
 form {
     display: flex;
+    position: relative;
+    top: 130px;
     background-color: #1d2b36;
     padding: 50px;
     border-radius: 25px;
