@@ -31,16 +31,25 @@
     <main>
       <!-- Flag Banner -->
       <div class="flag_banner"><img  src="flag_banner.png" alt="flag banner image" /></div>
-      </div>
-      <!-- This data will be pulled from the WebSocket data -->
-      <ul class="list-group">
-        <li class="list-group-item">Joe started a new game</li>
-        <li class="list-group-item">Moe started a new game</li>
-        <li class="list-group-item">Mike started a new game</li>
-        <li class="list-group-item">Carly got the daily flag in 7 attempts</li>
-        <li class="list-group-item">Moe got the daily flag in 3 attempts</li>
-      </ul>
 
+      <div class="collapse_menu">
+        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#notificationCollapse" aria-expanded="false" aria-controls="notificationCollapse">
+          Notifications <span class="badge text-bg-secondary">4</span>
+        </button>
+
+        <div class="collapse" id="notificationCollapse">
+          <div class="card card-body">
+            <ul id="notification_daily" class="list-group">
+              <li class="list-group-item">Joe started a new game</li>
+              <li class="list-group-item">Moe started a new game</li>
+              <li class="list-group-item">Mike started a new game</li>
+              <li class="list-group-item">Carly got the daily flag in 7 attempts</li>
+              <li class="list-group-item">Moe got the daily flag in 3 attempts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Enter a flag..." aria-label="Enter a flag..." aria-describedby="button-addon2">
         <button class="btn btn-primary" type="button" id="button-addon2">Submit</button>
@@ -122,5 +131,6 @@
     <footer>
       <a href="https://github.com/searlejk/startup">Author: Jeremy Searle</a>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

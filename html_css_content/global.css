@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+
 body {
   display: flex;
   flex-direction: column;
@@ -33,7 +34,7 @@ form {
 .list-group {
     background-color: #37474f;
     padding-top: 50px;
-     padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .container.text-center {
@@ -57,11 +58,6 @@ form {
   text-align:center;
 }
 
-#leaderboard_data{
-    display: flex;
-    padding-bottom: 900;
-}
-
 .form-floating.mb-3{
     color: gray;
 }
@@ -71,16 +67,17 @@ form {
 }
 
 main {
+  justify-content: flex-start !important;
   flex: 1 calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   margin: 0;
 }
 
 .input-group.mb-3 {
     width: 40%;
+    padding-top: 40px;
 }
 
 .form-control, .btn {
