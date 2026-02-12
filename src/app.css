@@ -1,23 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+/* ===== body style ===== */
 .body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background-color: #37474f;
   color: #eeeeee;
-  min-width: 375px;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   overflow-x: hidden;
 }
 
+/* ===== header, main, footer ===== */
 header {
   flex: 0 80px;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  padding: 20px;
+  flex: 1;
+}
+
+footer {
+  flex: 0 30px;
+  background-color: #212121;
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+  color: white;
+  float: right;
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+/* ===== form & input ===== */
 form {
   display: flex;
   position: relative;
@@ -32,30 +57,6 @@ form {
   margin-bottom: 40%;
 }
 
-.list-group {
-  background-color: #37474f;
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-
-.container.text-center {
-  max-width: 700px;
-  width: 95%;
-  padding: 10px;
-}
-
-.container.text-center .row {
-  row-gap: 25px;
-}
-
-.flag_banner {
-  max-width: 100%;
-  padding: 0px;
-  margin: 0;
-  overflow: hidden;
-  text-align: center;
-}
-
 .form-floating.mb-3 {
   color: gray;
 }
@@ -64,13 +65,10 @@ form {
   color: gray;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 20px;
-  padding: 20px;
-  flex: 1;
+.form-control,
+.btn {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
 }
 
 .input-group.mb-3 {
@@ -82,12 +80,6 @@ main {
   max-width: 500px;
   align-self: center;
   padding: 20px 0;
-}
-
-.form-control,
-.btn {
-  font-family: "Montserrat", sans-serif !important;
-  font-weight: 600;
 }
 
 /* Top Menu Bar section */
@@ -136,19 +128,21 @@ ul li a:hover {
   color: rgb(177, 177, 177);
 }
 
-/* footer section */
-footer {
-  flex: 0 30px;
-  background-color: #212121;
-  padding: 0;
-  margin: 0;
+/* ===== other ===== */
+.list-group {
+  background-color: #37474f;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
-footer a {
-  color: white;
-  float: right;
-  padding-top: 5px;
-  padding-right: 5px;
+.container.text-center {
+  max-width: 700px;
+  width: 95%;
+  padding: 10px;
+}
+
+.container.text-center .row {
+  row-gap: 25px;
 }
 
 @media (max-height: 600px) {
