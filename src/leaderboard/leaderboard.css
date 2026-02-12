@@ -1,0 +1,19 @@
+h1 {
+  display: flex;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  margin: 0px;
+  white-space: nowrap;
+}
+
+#leaderboard_data{
+    display: flex;
+    padding-bottom: 900;
+}
+
+.table.table-dark.table-striped {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 10px;
+}
