@@ -58,7 +58,7 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - HTML will be used to route players between pages. There will be a login page, create account page, game page and leaderboard page. 
+- **HTML** - HTML will be used to route players between pages. There will be a login page, create account page, game page and leaderboard page.
 - **CSS** - CSS is essential in the styling of the page and also visual adaptation for mobile. This website should look presentable on mobile as that is going to be the most common platform.
 - **React** - React will update the user's end to display the updated flag. It will also create the session and allow the user to rejoin that session.
 - **Service** - Services that I will use are logging in, creating an account, update profile statistics, update leaderboard. I will also use an API call to get a map of the country that matches the flag of the day with this link: https://github.com/lennertVanSever/graphcountries
@@ -80,12 +80,13 @@ I am going to use the required technologies in the following ways.
 ## 🚀 HTML deliverable
 
 # Notes
+
 - I will want to remember how my API request works for flagsAPI
 - Here is an example: https://flagsapi.com/AU/flat/32.png This gets the Australian flag
 - Structure my Leaderboard as a table when styling it in CSS
 - Daily and Unlimited Flagle will be duplicates but should add to different numbers in the DB
 
-- [x] **HTML pages** - I have Five HTML pages. 
+- [x] **HTML pages** - I have Five HTML pages.
 - [x] **Proper HTML element usage** - I used BODY, TABLE, NAV, MAIN, HEADER and FOOTER. I kept my FOOTER simple with a link to my github on each page. The HEADER is the same on each page with links to all necessary pages. I used BODY for all content between the HEADER and FOOTER. I used NAV with a MENU in the same style as the Simon demo inside the HEADER. I was able to use TABLE for both the leaderboard and the placeholder for my flags in daily.html and unlimited.html
 - [x] **Links** - Links are found at the top of the page to navigate between Leaderboard, Home, Daily and Unlimited
 - [x] **Text** - Flag guesses are displayed as text on the daily.html and unlimited.html screen
@@ -98,19 +99,17 @@ I am going to use the required technologies in the following ways.
 ## 🚀 CSS deliverable
 
 Notes
+
 - I need to remember the styling colors that I've used:
-Footer/menu bar: background-color: #212121
-Menu hover/curr_page: background-color: #111111
+  Footer/menu bar: background-color: #212121
+  Menu hover/curr_page: background-color: #111111
 
 - This is my codepen link from practice: https://codepen.io/Searlejk/pen/wBWXqBB
 
 - This is my link to the other codepen practice: https://codepen.io/Searlejk/pen/pvbKawO?editors=0100
 
-
-
 Prerequisites:
 [x] - I added the simon CSS to my website
-
 
 - [x] **Visually appealing colors and layout. No overflowing elements.** - I use calm darker colors. Everything is contained to the screen. The layout is simple and easy to navigate.
 - [x] **Use of a CSS framework** - I used the CSS framework for basic bootstrap to make fonts and other details more standardized. This helped with buttons and input boxes.
@@ -120,9 +119,12 @@ Prerequisites:
 - [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I used each of these in my css code. My pseduo selector was hover, my ID was #notificationCollapse in daily.css. I used a ton of elements and classes.
 
 ## 🚀 React part 1: Routing deliverable
+
 Notes
+
 - reading the info regarding the react part 1
 - I am going to store my simon react in a burner folder, so that it is not part of this repository
+- I just deployed the react for simon to my simon.flagle.click website
 
 - [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
 - [ ] **Components** - I did not complete this part of the deliverable.
