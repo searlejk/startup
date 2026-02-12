@@ -120,6 +120,9 @@ Prerequisites:
 - [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I used each of these in my css code. My pseduo selector was hover, my ID was #notificationCollapse in daily.css. I used a ton of elements and classes.
 
 ## 🚀 React part 1: Routing deliverable
+Notes
+- reading the info regarding the react part 1
+- I am going to store my simon react in a burner folder, so that it is not part of this repository
 
 - [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
 - [ ] **Components** - I did not complete this part of the deliverable.
