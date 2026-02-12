@@ -8,17 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/searlejk/startup.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/searlejk/startup/issues"
-  },
-  "homepage": "https://github.com/searlejk/startup#readme",
   "devDependencies": {
     "vite": "^7.3.1"
   }
