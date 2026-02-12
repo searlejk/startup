@@ -128,8 +128,8 @@ Notes
   [x] - Sort files
   [x] - refactor files
   [x] - install bootstrap
-  [ ] - Fix login button
-  [ ] - Fix create account button
+  [x] - Fix login button
+  [x] - Fix create account button
   [ ] - Fix flag banner image styling later (its in the header now)
 
 - [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
