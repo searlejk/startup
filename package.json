@@ -1,0 +1,23 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "This game is just like wordle, but with flags. You guess a flag and see how close you are. The game will display the colors of the flag that you got correct. You keep guessing until you get the daily flag.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/searlejk/startup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/searlejk/startup/issues"
+  },
+  "homepage": "https://github.com/searlejk/startup#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
