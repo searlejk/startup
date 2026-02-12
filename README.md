@@ -130,6 +130,7 @@ Notes
   [x] - install bootstrap
   [ ] - Fix login button
   [ ] - Fix create account button
+  [ ] - Fix flag banner image styling later (its in the header now)
 
 - [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
 - [ ] **Components** - I did not complete this part of the deliverable.

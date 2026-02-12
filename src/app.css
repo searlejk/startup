@@ -22,7 +22,7 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: 20px;
   padding: 20px;
   flex: 1;
@@ -31,55 +31,41 @@ main {
 footer {
   flex: 0 30px;
   background-color: #212121;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
 }
 
 footer a {
   color: white;
-  float: right;
-  padding-top: 5px;
-  padding-right: 5px;
+  text-decoration: none;
 }
 
 /* ===== form & input ===== */
 form {
-  display: flex;
-  position: relative;
-  top: 130px;
-  background-color: #1d2b36;
-  padding: 50px;
-  border-radius: 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid #2c3e50;
-  flex-direction: column;
   gap: 15px;
-  margin-bottom: 40%;
+  display: flex;
+  top: 130px;
+  padding: 50px;
+  max-width: 400px;
+  border-radius: 25px;
+  flex-direction: column;
+  background-color: #1d2b36;
+  border: 1px solid #2c3e50;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.form-floating.mb-3 {
-  color: gray;
-}
-
-.form-floating {
-  color: gray;
-}
-
+.form-floating,
 .form-control,
 .btn {
   font-family: "Montserrat", sans-serif !important;
-  font-weight: 600;
-}
-
-.input-group.mb-3 {
-  width: 40%;
+  font-weight: 600 !important;
 }
 
 .input-group {
   width: 100%;
   max-width: 500px;
-  align-self: center;
-  padding: 20px 0;
 }
 
 /* Top Menu Bar section */
