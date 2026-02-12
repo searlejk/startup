@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-
-body {
+.body {
   display: flex;
   flex-direction: column;
   background-color: #37474f;
@@ -9,7 +8,7 @@ body {
   min-width: 375px;
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   overflow-x: hidden;
 }
@@ -19,30 +18,29 @@ header {
 }
 
 form {
-    display: flex;
-    position: relative;
-    top: 130px;
-    background-color: #1d2b36;
-    padding: 50px;
-    border-radius: 25px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid #2c3e50;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 40%;
+  display: flex;
+  position: relative;
+  top: 130px;
+  background-color: #1d2b36;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2c3e50;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40%;
 }
 
 .list-group {
-    background-color: #37474f;
-    padding-top: 50px;
-    padding-bottom: 20px;
+  background-color: #37474f;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
 .container.text-center {
-    max-width: 700px;
-    width: 95%;
-    padding: 10px;
-   
+  max-width: 700px;
+  width: 95%;
+  padding: 10px;
 }
 
 .container.text-center .row {
@@ -56,15 +54,15 @@ form {
   position: absolute;
   top: 80px;
   overflow: hidden;
-  text-align:center;
+  text-align: center;
 }
 
-.form-floating.mb-3{
-    color: gray;
+.form-floating.mb-3 {
+  color: gray;
 }
 
 .form-floating {
-    color: gray;
+  color: gray;
 }
 
 main {
@@ -77,18 +75,19 @@ main {
 }
 
 .input-group.mb-3 {
-    width: 40%;
-    padding-top: 40px;
+  width: 40%;
+  padding-top: 40px;
 }
 
-.form-control, .btn {
-  font-family: 'Montserrat', sans-serif !important;
+.form-control,
+.btn {
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 600;
 }
 
 /* Top Menu Bar section */
-.curr_page{
-    background-color: #111111;
+.curr_page {
+  background-color: #111111;
 }
 
 ul {
@@ -101,14 +100,14 @@ ul {
   width: 100%;
 }
 
-ul li a{
+ul li a {
   display: block;
   color: white;
   padding: 19px 19px;
   text-decoration: none;
 }
 
-ul li h3{
+ul li h3 {
   display: block;
   color: white;
   padding: 19px 19px;
@@ -131,7 +130,6 @@ ul li a:hover {
   background-color: #111111;
   color: rgb(177, 177, 177);
 }
-
 
 /* footer section */
 footer {
