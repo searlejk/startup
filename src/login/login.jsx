@@ -24,9 +24,9 @@ export function Login() {
           />
           <label for="floatingPassword">Password</label>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <NavLink to="daily" className="btn btn-primary">
           Log In
-        </button>
+        </NavLink>
         <span className="text-muted">
           Need an account?{" "}
           <NavLink to="create_account">Create Account</NavLink>{" "}

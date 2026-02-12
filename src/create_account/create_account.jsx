@@ -33,9 +33,9 @@ export function CreateAccount() {
           />
           <label for="floatingVerifyPassword">Verify Password</label>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <NavLink to="/daily" className="btn btn-primary">
           Create Account
-        </button>
+        </NavLink>
         <span className="text-muted">
           Need an account? <NavLink to="/">Log In</NavLink>{" "}
         </span>
