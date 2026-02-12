@@ -9,7 +9,38 @@ import "./app.css";
 // import { About } from "./about/about";
 
 export default function App() {
-  return <div className="body bg-dark text-light"> App will display here</div>;
+  return (
+    <div className="body bg-dark text-light">
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <h3>Flagle</h3>
+            </li>
+
+            <li className="curr_page">
+              <a href="login.html">Home</a>
+            </li>
+            <li>
+              <a href="daily.html">Daily</a>
+            </li>
+            <li>
+              <a href="unlimited.html">Unlimited</a>
+            </li>
+            <li>
+              <a href="leaderboard.html">Leaderboard</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main> Main Body Section</main>
+
+      <footer>
+        <a href="https://github.com/searlejk/startup">Author: Jeremy Searle</a>
+      </footer>
+    </div>
+  );
 }
 
 // function NotFound() {
