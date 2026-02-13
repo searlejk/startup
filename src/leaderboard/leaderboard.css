@@ -5,6 +5,8 @@ h1 {
   padding-bottom: 20px;
   margin: 0px;
   white-space: nowrap;
+  /* Syntax: clamp(min, preferred, max) */
+  font-size: clamp(0.85rem, 1.5vw + 1rem, 2rem);
 }
 
 #leaderboard_data {

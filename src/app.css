@@ -116,6 +116,14 @@ ul li a:hover {
   color: rgb(177, 177, 177);
 }
 
+/* Remember this is how I use clamp */
+/* Syntax: clamp(min, preferred, max) */
+ul li a,
+ul li h3 {
+  padding: clamp(8px, 2vw, 20px);
+  font-size: clamp(0.85rem, 1.5vw + 0.5rem, 1.1rem);
+}
+
 /* ===== other ===== */
 .list-group {
   background-color: #37474f;
