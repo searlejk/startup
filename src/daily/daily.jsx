@@ -1,4 +1,5 @@
 import React from "react";
+import "./daily.css";
 
 export function Daily() {
   return (

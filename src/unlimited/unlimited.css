@@ -1,8 +1,6 @@
-/* Top Menu Bar section */
-.curr_page {
+nav a[href="/unlimited"][aria-current="page"] {
   background-color: #216d1c;
 }
-/* Top Menu Bar section */
 
 #notificationCollapse .card-body {
   display: flex;

@@ -27,7 +27,7 @@ export function Login() {
         <NavLink to="daily" className="btn btn-primary">
           Log In
         </NavLink>
-        <span className="text-muted">
+        <span className="small-text">
           Need an account?{" "}
           <NavLink to="create_account">Create Account</NavLink>{" "}
         </span>

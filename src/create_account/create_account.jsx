@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./create_account.css";
 
 export function CreateAccount() {
   return (
@@ -36,7 +37,7 @@ export function CreateAccount() {
         <NavLink to="/daily" className="btn btn-primary">
           Create Account
         </NavLink>
-        <span className="text-muted">
+        <span className="small-text">
           Need an account? <NavLink to="/">Log In</NavLink>{" "}
         </span>
       </form>

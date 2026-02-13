@@ -71,8 +71,8 @@ form {
 }
 
 /* Top Menu Bar section */
-.curr_page {
-  background-color: #111111;
+nav a[aria-current="page"] {
+  background-color: #1c1f8f;
 }
 
 ul {

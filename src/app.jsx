@@ -20,7 +20,7 @@ export default function App() {
                 <h3>Flagle</h3>
               </li>
 
-              <li className="curr_page">
+              <li>
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>

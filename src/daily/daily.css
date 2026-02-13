@@ -1,12 +1,6 @@
-/* Top Menu Bar section */
-.curr_page{
-  background-color: #1c1f8f;
-}
-/* Top Menu Bar section */
-
 #notificationCollapse .card-body {
   display: flex;
-  background-color: #1d2b36!important;
+  background-color: #1d2b36 !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border: 1px solid #2c3e50;
 }
@@ -25,7 +19,7 @@
   padding-top: 40px;
   align-self: flex-end;
   margin-right: 20px;
-  width: auto; 
+  width: auto;
   position: relative;
 }
 
@@ -33,6 +27,6 @@
   position: absolute;
   right: 0;
   top: 100%;
-  z-index: 10; 
+  z-index: 10;
   min-width: 300px;
 }

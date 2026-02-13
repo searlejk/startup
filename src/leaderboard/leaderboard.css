@@ -7,9 +7,9 @@ h1 {
   white-space: nowrap;
 }
 
-#leaderboard_data{
-    display: flex;
-    padding-bottom: 900;
+#leaderboard_data {
+  display: flex;
+  padding-bottom: 900;
 }
 
 .table.table-dark.table-striped {
