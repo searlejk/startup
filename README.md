@@ -133,9 +133,9 @@ Notes
   [x] - Fix flag banner image styling later (its in the header now)
   [x] - Fix footer so it appear correctly
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - I sorted all of my files and used vite so I can preview the files. It also allowed me to tweak my code while previewing the website.
+- [x] **Components** - I have multiple react components. One for each view/page and they use HTML structure and CSS styling.
+- [x] **Router** - I used BrowserRouter and Routes to navigate, I also used NavLink which helped. This way I am able to go from page to page.
 
 ## 🚀 React part 2: Reactivity deliverable
 
