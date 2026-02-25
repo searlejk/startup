@@ -7,7 +7,7 @@ import { AuthState } from "./authState";
 export function Login({ userName, authState, onAuthChange }) {
   return (
     <main>
-      <form method="get" action="daily.html">
+      <form>
         {authState !== AuthState.Unknown}
         {authState === AuthState.Authenticated && (
           <Authenticated

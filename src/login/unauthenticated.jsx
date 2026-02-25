@@ -2,12 +2,13 @@ import React from "react";
 
 import Button from "react-bootstrap/Button";
 import { MessageDialog } from "./messageDialog";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState("");
   const [displayError, setDisplayError] = React.useState(null);
+  const navigate = useNavigate();
 
   async function loginUser() {
     localStorage.setItem("userName", userName);
@@ -21,7 +22,7 @@ export function Unauthenticated(props) {
 
   return (
     <>
-      <h1>Log In</h1>
+      <h1>Welcome to Flagle</h1>
       <div className="form-floating">
         <input
           className="form-control"
@@ -48,10 +49,13 @@ export function Unauthenticated(props) {
       >
         Log In
       </Button>
-      <span className="small-text">
-        Need an account?{" "}
-        <NavLink to="create_account">Create Account</NavLink>{" "}
-      </span>
+      <Button
+        variant="secondary"
+        onClick={() => createUser()}
+        disabled={!userName || !password}
+      >
+        Create
+      </Button>
     </>
   );
 }
