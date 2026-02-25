@@ -2,6 +2,7 @@ import React from "react";
 
 import Button from "react-bootstrap/Button";
 import { MessageDialog } from "./messageDialog";
+import { NavLink } from "react-router-dom";
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
@@ -23,25 +24,30 @@ export function Unauthenticated(props) {
       <h1>Log In</h1>
       <div className="form-floating">
         <input
-          type="email"
           className="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="your@email.com"
         />
         <label for="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
         <input
-          type="password"
           className="form-control"
-          id="floatingPassword"
-          placeholder="Password"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="password"
         />
         <label for="floatingPassword">Password</label>
       </div>
-      <NavLink to="daily" className="btn btn-primary">
+      <Button
+        variant="primary"
+        onClick={() => loginUser()}
+        disabled={!userName || !password}
+      >
         Log In
-      </NavLink>
+      </Button>
       <span className="small-text">
         Need an account?{" "}
         <NavLink to="create_account">Create Account</NavLink>{" "}

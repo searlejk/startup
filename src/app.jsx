@@ -8,8 +8,17 @@ import { Daily } from "./daily/daily";
 import { CreateAccount } from "./create_account/create_account";
 import { Leaderboard } from "./leaderboard/leaderboard";
 import { Unlimited } from "./unlimited/unlimited";
+import { AuthState } from "./login/authState";
 
 export default function App() {
+  const [userName, setUserName] = React.useState(
+    localStorage.getItem("userName") || "",
+  );
+  const currentAuthState = userName
+    ? AuthState.Authenticated
+    : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
   return (
     <BrowserRouter>
       <div className="body bg-dark text-light">
@@ -37,7 +46,19 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+              />
+            }
+          />
           <Route path="/daily" element={<Daily />} />
           <Route path="/unlimited" element={<Unlimited />} />
           <Route path="/leaderboard" element={<Leaderboard />} />

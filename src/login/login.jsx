@@ -8,7 +8,7 @@ export function Login({ userName, authState, onAuthChange }) {
   return (
     <main>
       <form method="get" action="daily.html">
-        {authState !== AuthState.Unknown && <h1>Welcome to Simon</h1>}
+        {authState !== AuthState.Unknown}
         {authState === AuthState.Authenticated && (
           <Authenticated
             userName={userName}
