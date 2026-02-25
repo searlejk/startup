@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 
-import "./authenticated.css";
+// import "./authenticated.css";
 
 export function Authenticated(props) {
   const navigate = useNavigate();
@@ -14,14 +14,19 @@ export function Authenticated(props) {
   }
 
   return (
-    <div>
-      <div className="playerName">{props.userName}</div>
-      <Button variant="primary" onClick={() => navigate("/play")}>
-        Play
-      </Button>
-      <Button variant="secondary" onClick={() => logout()}>
-        Logout
-      </Button>
-    </div>
+    <>
+      <h1>Welcome to Flagle</h1>
+      <div className="form-floating">
+        <Button variant="primary" onClick={() => navigate("/daily")}>
+          Daily
+        </Button>
+        <Button variant="primary" onClick={() => navigate("/unlimited")}>
+          Unlimited
+        </Button>
+        <Button variant="primary" onClick={logout}>
+          Log Out
+        </Button>
+      </div>
+    </>
   );
 }

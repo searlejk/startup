@@ -20,46 +20,32 @@ export function Unauthenticated(props) {
 
   return (
     <>
-      <div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">@</span>
-          <input
-            className="form-control"
-            type="text"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="your@email.com"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">🔒</span>
-          <input
-            className="form-control"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-          />
-        </div>
-        <Button
-          variant="primary"
-          onClick={() => loginUser()}
-          disabled={!userName || !password}
-        >
-          Login
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => createUser()}
-          disabled={!userName || !password}
-        >
-          Create
-        </Button>
+      <h1>Log In</h1>
+      <div className="form-floating">
+        <input
+          type="email"
+          className="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Email address</label>
       </div>
-
-      <MessageDialog
-        message={displayError}
-        onHide={() => setDisplayError(null)}
-      />
+      <div className="form-floating">
+        <input
+          type="password"
+          className="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+      <NavLink to="daily" className="btn btn-primary">
+        Log In
+      </NavLink>
+      <span className="small-text">
+        Need an account?{" "}
+        <NavLink to="create_account">Create Account</NavLink>{" "}
+      </span>
     </>
   );
 }

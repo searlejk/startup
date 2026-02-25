@@ -1,36 +1,28 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
-export function Login() {
+import { Unauthenticated } from "./unauthenticated";
+import { Authenticated } from "./authenticated";
+import { AuthState } from "./authState";
+
+export function Login({ userName, authState, onAuthChange }) {
   return (
     <main>
       <form method="get" action="daily.html">
-        <h1>Log In</h1>
-        <div className="form-floating">
-          <input
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+        {authState !== AuthState.Unknown && <h1>Welcome to Simon</h1>}
+        {authState === AuthState.Authenticated && (
+          <Authenticated
+            userName={userName}
+            onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)}
           />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div className="form-floating">
-          <input
-            type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
+        )}
+        {authState === AuthState.Unauthenticated && (
+          <Unauthenticated
+            userName={userName}
+            onLogin={(loginUserName) => {
+              onAuthChange(loginUserName, AuthState.Authenticated);
+            }}
           />
-          <label for="floatingPassword">Password</label>
-        </div>
-        <NavLink to="daily" className="btn btn-primary">
-          Log In
-        </NavLink>
-        <span className="small-text">
-          Need an account?{" "}
-          <NavLink to="create_account">Create Account</NavLink>{" "}
-        </span>
+        )}
       </form>
     </main>
   );

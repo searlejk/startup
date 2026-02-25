@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+:root {
+  --bs-primary: #1c1f8f; /* Your custom primary color */
+  --bs-primary-rgb: 28, 31, 143;
+  --bs-secondary: #37474f; /* Your custom secondary color */
+  --bs-secondary-rgb: 55, 71, 79;
+}
+
 /* ===== body style ===== */
 .body {
   height: 100%;
