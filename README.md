@@ -139,6 +139,9 @@ Notes
 
 ## 🚀 React part 2: Reactivity deliverable
 
+Notes
+[ ] - Remove all HTML files that are still in my project
+
 - [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
 - [ ] **Hooks** - I did not complete this part of the deliverable.
 
