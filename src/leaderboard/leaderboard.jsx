@@ -2,109 +2,52 @@ import React from "react";
 import "./leaderboard.css";
 
 export function Leaderboard() {
+  const [scores, setScores] = React.useState([]);
+
+  React.useEffect(() => {
+    const scoresText = localStorage.getItem("scores");
+    if (scoresText) {
+      setScores(JSON.parse(scoresText));
+    }
+  }, []);
+
+  const scoreRows = [];
+  if (scores.length) {
+    for (const [i, score] of scores.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{score.name.split("@")[0]}</td>
+          <td>{score.score}</td>
+          <td>{score.date}</td>
+        </tr>,
+      );
+    }
+  } else {
+    scoreRows.push(
+      <tr key="0">
+        <td colSpan="5">Be the first to score</td>
+      </tr>,
+    );
+  }
+
   return (
     <main>
       <div className="flag_banner">
         <img src="flag_banner.png" alt="flag banner image" />
       </div>
-
       <h1>Community: 9,347 games played</h1>
       <table className="table table-dark table-striped">
-        <thead>
+        <thead className="table-dark">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Country</th>
-            <th scope="col">Daily Streak</th>
-            <th scope="col">Games Played</th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Daily Streak</th>
+            <th>Games Played</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Mark</td>
-            <td>USA</td>
-            <td>250</td>
-            <td>435</td>
-          </tr>
-        </tbody>
+        <tbody id="scores">{scoreRows}</tbody>
       </table>
     </main>
   );
