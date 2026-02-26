@@ -90,7 +90,12 @@ export function FlagleGame(props) {
       </>
     );
 
-    setRows([newRow, ...rows]);
+    if (rows.length === 0) {
+      setRows([firstRow, newRow]);
+    } else {
+      setRows([rows[0], newRow, ...rows.slice(1)]);
+    }
+
     setGuessCount(guessCount + 1);
     setAllowPlayer(true);
   }
@@ -105,7 +110,7 @@ export function FlagleGame(props) {
           aria-label="Enter a flag..."
           onChange={(e) => setInput(e.target.value)}
         />
-        <Button variant="primary" onClick={() => makeGuess({ input })}>
+        <Button variant="primary" onClick={() => makeGuess(input)}>
           Submit
         </Button>
       </div>
