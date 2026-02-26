@@ -141,9 +141,15 @@ Notes
 
 Notes
 [ ] - Remove all HTML files that are still in my project
-[ ] - Only add vertical and horizontal flag types
-[ ] - h123 is horizontal flag with color 1 top color 2 middle and color 3 bottom
-[ ] - v123 is vertical flag with color 1 left color 2 middle and color 3 right
+[x] - Only add vertical flag types
+[ ] - Add notification for player starting game
+[ ] - Add notification for player finishing game
+[ ] - Add score/leaderboard update after each game
+[ ] - Add new game button to Unlimited
+[ ] - Make daily persist when swapping tabs
+[ ] -
+[ ] -
+[ ] -
 
 - [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
 - [ ] **Hooks** - I did not complete this part of the deliverable.

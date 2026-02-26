@@ -76,14 +76,11 @@ export function FlagleGame(props) {
     const { correct, output } = checkGuess(guess);
     const feedbackFlag = drawFlag(output);
     const guessFlag = drawFlag(countries[guess].stripes);
-    const text = correct ? "Correct!" : "";
 
     const newRow = (
       <>
         <div className="col">
           {guess.charAt(0).toUpperCase() + guess.slice(1)}
-          <br />
-          {text}
         </div>
         <div className="col">{guessFlag}</div>
         <div className="col">{feedbackFlag}</div>
