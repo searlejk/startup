@@ -76,6 +76,9 @@ export function FlagleGame(props) {
     const { correct, output } = checkGuess(guess);
     const feedbackFlag = drawFlag(output);
     const guessFlag = drawFlag(countries[guess].stripes);
+    if (correct) {
+      saveStats(guessCount + 1);
+    }
 
     const newRow = (
       <>
@@ -88,6 +91,7 @@ export function FlagleGame(props) {
     );
 
     if (rows.length === 0) {
+      GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
       setRows([firstRow, newRow]);
     } else {
       setRows([rows[0], newRow, ...rows.slice(1)]);
@@ -95,6 +99,26 @@ export function FlagleGame(props) {
 
     setGuessCount(guessCount + 1);
     setAllowPlayer(true);
+  }
+
+  async function saveStats(guess_count) {
+    localStorage.setItem(
+      "gamesPlayed",
+      Number(localStorage.getItem("gamesPlayed") || 0) + 1,
+    );
+    const games_played = localStorage.getItem("gamesPlayed") || 0;
+    const date = new Date().toLocaleDateString();
+    const newStats = {
+      name: userName,
+      score: guess_count,
+      date: date,
+      gamesPlayed: games_played,
+    };
+
+    // Let other players know the game has concluded
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newStats);
+
+    updateScoresLocal(newStats);
   }
 
   return (

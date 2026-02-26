@@ -142,8 +142,9 @@ Notes
 Notes
 [ ] - Remove all HTML files that are still in my project
 [x] - Only add vertical flag types
-[ ] - Add notification for player starting game
-[ ] - Add notification for player finishing game
+[x] - Add notification for player starting game
+[x] - Add notification for player finishing game
+[ ] - Make the Notification number update correctly
 [ ] - Add score/leaderboard update after each game
 [ ] - Add new game button to Unlimited
 [ ] - Make daily persist when swapping tabs

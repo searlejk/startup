@@ -35,9 +35,11 @@ export function NotificationMenu(props) {
     for (const [i, event] of events.entries()) {
       let message = "unknown";
       if (event.type === GameEvent.End) {
-        message = `scored ${event.value.score}`;
-      } else if (event.type === GameEvent.Start) {
-        message = `started a new game`;
+        message = ` got the daily flagle in ${event.value.score} guesses`;
+      } else if (event.type === GameEvent.Dstart) {
+        message = ` started the daily flagle`;
+      } else if (event.type === GameEvent.Ustart) {
+        message = ` started an unlimited flagle`;
       } else if (event.type === GameEvent.System) {
         message = event.value.msg;
       }
