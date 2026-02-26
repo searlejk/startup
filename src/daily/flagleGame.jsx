@@ -81,9 +81,7 @@ export function FlagleGame(props) {
     const newRow = (
       <>
         <div className="col">
-          {guess}
-          <br />
-          Guess {guessCount}
+          {guess.charAt(0).toUpperCase() + guess.slice(1)}
           <br />
           {text}
         </div>
