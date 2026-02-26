@@ -59,7 +59,7 @@ export default function App() {
               />
             }
           />
-          <Route path="/daily" element={<Daily />} />
+          <Route path="/daily" element={<Daily userName={userName} />} />
           <Route path="/unlimited" element={<Unlimited />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/create_account" element={<CreateAccount />} />

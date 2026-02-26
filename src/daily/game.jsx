@@ -1,7 +1,7 @@
 import React from "react";
 import "./daily.css";
 
-export function Daily() {
+export function subDaily() {
   return (
     <main>
       <div className="flag_banner">

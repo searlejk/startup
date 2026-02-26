@@ -1,13 +1,12 @@
 import React from "react";
 
-import { Players } from "./players";
 import { FlagleGame } from "./flagleGame";
 
-export function Play(props) {
+export function Daily(props) {
   return (
     <main className="bg-secondary">
-      <Players userName={props.userName} />
-      <SimonGame userName={props.userName} />
+      <h1>Daily Flagle</h1>
+      <FlagleGame userName={props.userName} />
     </main>
   );
 }

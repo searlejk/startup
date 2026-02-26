@@ -1,12 +1,14 @@
 import React from "react";
 
 import { Button } from "react-bootstrap";
-import { delay } from "./delay";
 import { GameEvent, GameNotifier } from "./gameNotifier";
 
-export function flagleGame(props) {
+export function FlagleGame(props) {
   const userName = props.userName;
-  const secretFlag = "France";
+  const [allowPlayer, setAllowPlayer] = React.useState(true);
+  const [guessCount, setGuessCount] = React.useState(0);
+  const [secretFlag] = React.useState("france");
+  const [rows, setRows] = React.useState([]);
   const countries = {
     france: {
       name: "France",
@@ -14,44 +16,39 @@ export function flagleGame(props) {
     },
     nigeria: {
       name: "Nigeria",
-      stripes: ["green", "white", "red"],
+      stripes: ["green", "white", "green"],
     },
     peru: {
       name: "Peru",
       stripes: ["red", "white", "red"],
     },
   };
-  const guessCount = 0;
 
   async function onPressed(input) {
     if (allowPlayer) {
       setAllowPlayer(false);
-      await delay(1000);
-    }
+      const row = returnRow(input);
 
-    if (input === secretFlag) {
-      // Correct
-      GameNotifier.notify(GameEvent.CORRECT);
-    } else {
-      // Wrong
-      GameNotifier.notify(GameEvent.WRONG);
+      await delay(1000);
+      return row;
     }
   }
 
   function checkGuess(guess) {
-    guessFlag = countries[guess];
-    trueFlag = countries[secretFlag];
+    const guessFlag = countries[guess].stripes;
+    const trueFlag = countries[secretFlag].stripes;
     const output = [];
 
-    for (i in Range(2)) {
+    for (let i = 0; i < 3; i++) {
       if (guessFlag[i] === trueFlag[i]) {
-        output.concat(guessFlag[i]);
+        output.push(guessFlag[i]);
       } else {
-        output.concat("grey");
+        output.push("grey");
       }
     }
 
-    return output;
+    const correct = guess === secretFlag;
+    return { correct, output };
   }
 
   function drawFlag(colors) {
@@ -64,64 +61,48 @@ export function flagleGame(props) {
     );
   }
 
-  function returnRow(guess) {
-    feedbackFlag = drawFlag(checkGuess(guess));
-    guessFlag = drawFlag(countries[guess].stripes);
+  function makeGuess(guess) {
+    const { correct, output } = checkGuess(guess);
+    const feedbackFlag = drawFlag(output);
+    const guessFlag = drawFlag(countries[guess].stripes);
+    const text = correct ? "Correct!" : "";
 
-    return (
+    const newRow = (
       <>
         <div className="col">
           Guess #{guessCount}
           <br />({guess})
           <br />
-          Correct!
+          {text}
         </div>
         <div className="col">{guessFlag}</div>
         <div className="col">{feedbackFlag}</div>
       </>
     );
-  }
 
-  async function newGame() {
-    setAllowPlayer(false);
-    await delay(1000);
-
-    secretFlag = getRandomFlag();
+    setRows([...rows, newRow]);
+    setGuessCount(guessCount + 1);
     setAllowPlayer(true);
-
-    // Let other players know a new game has started
-    GameNotifier.broadcastEvent(userName, GameEvent.Start, {});
   }
 
-  function getRandomFlag() {
-    let b = Array.from(countries.names());
-    return countries[b[Math.floor(Math.random() * b.length)]].name;
-  }
+  return (
+    <div className="game">
+      <h2>Flagle Game</h2>
+      <p>Player: {userName || "Guest"}</p>
 
-  function updateScoresLocal(newScore) {
-    let scores = [];
-    const scoresText = localStorage.getItem("scores");
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
+      <div className="guesses">{rows}</div>
 
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (newScore.score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      scores.push(newScore);
-    }
-
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
-
-    localStorage.setItem("scores", JSON.stringify(scores));
-  }
+      <div className="buttons">
+        <Button variant="primary" onClick={() => makeGuess("france")}>
+          Guess France
+        </Button>
+        <Button variant="primary" onClick={() => makeGuess("nigeria")}>
+          Guess Nigeria
+        </Button>
+        <Button variant="primary" onClick={() => makeGuess("peru")}>
+          Guess Peru
+        </Button>
+      </div>
+    </div>
+  );
 }
