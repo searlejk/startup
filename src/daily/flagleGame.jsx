@@ -8,6 +8,7 @@ export function FlagleGame(props) {
   const [allowPlayer, setAllowPlayer] = React.useState(true);
   const [guessCount, setGuessCount] = React.useState(0);
   const [secretFlag] = React.useState("france");
+  const [input, setInput] = React.useState("");
   const firstRow = (
     <>
       <div className="col"></div>
@@ -69,6 +70,7 @@ export function FlagleGame(props) {
   }
 
   function makeGuess(guess) {
+    localStorage.setItem("lastGuess", guess);
     const { correct, output } = checkGuess(guess);
     const feedbackFlag = drawFlag(output);
     const guessFlag = drawFlag(countries[guess].stripes);
@@ -94,8 +96,23 @@ export function FlagleGame(props) {
   }
 
   return (
-    <div className="game">
-      <div className="row row-cols-3">{rows}</div>
+    <>
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter a flag..."
+          aria-label="Enter a flag..."
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <Button variant="primary" onClick={() => makeGuess({ input })}>
+          Submit
+        </Button>
+      </div>
+
+      <div className="container text-center">
+        <div className="row row-cols-3">{rows}</div>
+      </div>
 
       <div className="buttons">
         <Button variant="primary" onClick={() => makeGuess("france")}>
@@ -108,6 +125,6 @@ export function FlagleGame(props) {
           Guess Peru
         </Button>
       </div>
-    </div>
+    </>
   );
 }
