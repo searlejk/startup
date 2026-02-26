@@ -21,6 +21,8 @@ export function NotificationMenu(props) {
   }, []);
 
   function handleGameEvent(event) {
+    setCount((prevEvents) => prevEvents + 1);
+
     setEvent((prevEvents) => {
       let newEvents = [event, ...prevEvents];
       if (newEvents.length > 10) {

@@ -2,6 +2,7 @@ import React from "react";
 
 import { Button } from "react-bootstrap";
 import { GameEvent, GameNotifier } from "./gameNotifier";
+import { delay } from "./delay";
 
 export function FlagleGame(props) {
   const userName = props.userName;
@@ -115,10 +116,37 @@ export function FlagleGame(props) {
       gamesPlayed: games_played,
     };
 
+    // function updateScoresLocal(newScore) {
+    //   let scores = [];
+    //   const scoresText = localStorage.getItem("scores");
+    //   if (scoresText) {
+    //     scores = JSON.parse(scoresText);
+    //   }
+
+    //   let found = false;
+    //   for (const [i, prevScore] of scores.entries()) {
+    //     if (newScore.score > prevScore.score) {
+    //       scores.splice(i, 0, newScore);
+    //       found = true;
+    //       break;
+    //     }
+    //   }
+
+    //   if (!found) {
+    //     scores.push(newScore);
+    //   }
+
+    //   if (scores.length > 10) {
+    //     scores.length = 10;
+    //   }
+
+    //   localStorage.setItem("scores", JSON.stringify(scores));
+    // }
+
     // Let other players know the game has concluded
     GameNotifier.broadcastEvent(userName, GameEvent.End, newStats);
 
-    updateScoresLocal(newStats);
+    // updateScoresLocal(newStats);
   }
 
   return (
