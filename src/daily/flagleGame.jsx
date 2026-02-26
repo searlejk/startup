@@ -103,50 +103,80 @@ export function FlagleGame(props) {
   }
 
   async function saveStats(guess_count) {
-    localStorage.setItem(
-      "gamesPlayed",
-      Number(localStorage.getItem("gamesPlayed") || 0) + 1,
-    );
-    const games_played = localStorage.getItem("gamesPlayed") || 0;
-    const date = new Date().toLocaleDateString();
-    const newStats = {
+    // Name, Country, Daily Streak, Games Played
+
+    const getDayValue = (date) =>
+      Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+
+    const lastDayValue = Number(localStorage.getItem("lastDayPlayed") || 0);
+    const todayValue = getDayValue(new Date());
+
+    if (lastDayValue != 0) {
+      if (todayValue === lastDayValue + 1) {
+        // Increment Streak, played yesterday
+        localStorage.setItem(
+          "dailyStreak",
+          Number(localStorage.getItem("dailyStreak") || 0) + 1,
+        );
+      } else if (todayValue > lastDayValue + 1) {
+        // Reset Streak, missed a day
+        localStorage.setItem("dailyStreak", 1);
+      }
+    } else {
+      localStorage.setItem("dailyStreak", 1);
+    }
+
+    localStorage.setItem("lastDayPlayed", todayValue);
+
+    const gamesPlayed = Number(localStorage.getItem("gamesPlayed") || 0) + 1;
+    localStorage.setItem("gamesPlayed", gamesPlayed);
+
+    const dailyStreak = Number(localStorage.getItem("dailyStreak") || 1);
+
+    const newScore = {
       name: userName,
-      score: guess_count,
-      date: date,
-      gamesPlayed: games_played,
+      country: "USA",
+      dailyStreak: dailyStreak,
+      gamesPlayed: gamesPlayed,
     };
 
-    // function updateScoresLocal(newScore) {
-    //   let scores = [];
-    //   const scoresText = localStorage.getItem("scores");
-    //   if (scoresText) {
-    //     scores = JSON.parse(scoresText);
-    //   }
-
-    //   let found = false;
-    //   for (const [i, prevScore] of scores.entries()) {
-    //     if (newScore.score > prevScore.score) {
-    //       scores.splice(i, 0, newScore);
-    //       found = true;
-    //       break;
-    //     }
-    //   }
-
-    //   if (!found) {
-    //     scores.push(newScore);
-    //   }
-
-    //   if (scores.length > 10) {
-    //     scores.length = 10;
-    //   }
-
-    //   localStorage.setItem("scores", JSON.stringify(scores));
-    // }
-
     // Let other players know the game has concluded
-    GameNotifier.broadcastEvent(userName, GameEvent.End, newStats);
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
 
-    // updateScoresLocal(newStats);
+    updateScoresLocal(newScore);
+  }
+
+  function updateScoresLocal(newScore) {
+    const scoresText = localStorage.getItem("stats");
+    let scores = [];
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+
+    const existingIndex = scores.findIndex((s) => s.name === newScore.name);
+
+    if (existingIndex !== -1) {
+      scores[existingIndex] = newScore;
+    } else {
+      let found = false;
+      for (const [i, prevScore] of scores.entries()) {
+        if (newScore.gamesPlayed > prevScore.gamesPlayed) {
+          scores.splice(i, 0, newScore);
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        scores.push(newScore);
+      }
+
+      if (scores.length > 10) {
+        scores.length = 10;
+      }
+
+      localStorage.setItem("scores", JSON.stringify(scores));
+    }
   }
 
   return (
@@ -164,7 +194,7 @@ export function FlagleGame(props) {
         />
         <datalist id="country-options">
           {Object.keys(countries).map((key) => (
-            <option>{countries[key].name}</option>
+            <option key={key}>{countries[key].name}</option>
           ))}
         </datalist>
         <Button variant="primary" onClick={() => makeGuess(input)}>

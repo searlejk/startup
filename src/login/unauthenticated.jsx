@@ -31,7 +31,7 @@ export function Unauthenticated(props) {
           onChange={(e) => setUserName(e.target.value)}
           placeholder="your@email.com"
         />
-        <label for="floatingInput">Email address</label>
+        <label htmlFor="floatingInput">Email address</label>
       </div>
       <div className="form-floating">
         <input
@@ -40,7 +40,7 @@ export function Unauthenticated(props) {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="password"
         />
-        <label for="floatingPassword">Password</label>
+        <label htmlFor="floatingPassword">Password</label>
       </div>
       <Button
         variant="primary"
