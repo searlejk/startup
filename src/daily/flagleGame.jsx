@@ -70,7 +70,9 @@ export function FlagleGame(props) {
   }
 
   function makeGuess(guess) {
+    guess = guess.toLowerCase();
     localStorage.setItem("lastGuess", guess);
+    setInput("");
     const { correct, output } = checkGuess(guess);
     const feedbackFlag = drawFlag(output);
     const guessFlag = drawFlag(countries[guess].stripes);
@@ -109,7 +111,15 @@ export function FlagleGame(props) {
           placeholder="Enter a flag..."
           aria-label="Enter a flag..."
           onChange={(e) => setInput(e.target.value)}
+          list="country-options"
+          autoComplete="off"
+          value={input}
         />
+        <datalist id="country-options">
+          {Object.keys(countries).map((key) => (
+            <option>{countries[key].name}</option>
+          ))}
+        </datalist>
         <Button variant="primary" onClick={() => makeGuess(input)}>
           Submit
         </Button>
@@ -117,18 +127,6 @@ export function FlagleGame(props) {
 
       <div className="container text-center">
         <div className="row row-cols-3">{rows}</div>
-      </div>
-
-      <div className="buttons">
-        <Button variant="primary" onClick={() => makeGuess("france")}>
-          Guess France
-        </Button>
-        <Button variant="primary" onClick={() => makeGuess("nigeria")}>
-          Guess Nigeria
-        </Button>
-        <Button variant="primary" onClick={() => makeGuess("peru")}>
-          Guess Peru
-        </Button>
       </div>
     </>
   );
