@@ -8,6 +8,13 @@ export function FlagleGame(props) {
   const [allowPlayer, setAllowPlayer] = React.useState(true);
   const [guessCount, setGuessCount] = React.useState(0);
   const [secretFlag] = React.useState("france");
+  const firstRow = (
+    <>
+      <div className="col"></div>
+      <div className="col">Your Guess</div>
+      <div className="col">Result</div>
+    </>
+  );
   const [rows, setRows] = React.useState([]);
   const countries = {
     france: {
@@ -70,8 +77,9 @@ export function FlagleGame(props) {
     const newRow = (
       <>
         <div className="col">
-          Guess #{guessCount}
-          <br />({guess})
+          {guess}
+          <br />
+          Guess {guessCount}
           <br />
           {text}
         </div>
@@ -80,17 +88,14 @@ export function FlagleGame(props) {
       </>
     );
 
-    setRows([...rows, newRow]);
+    setRows([newRow, ...rows]);
     setGuessCount(guessCount + 1);
     setAllowPlayer(true);
   }
 
   return (
     <div className="game">
-      <h2>Flagle Game</h2>
-      <p>Player: {userName || "Guest"}</p>
-
-      <div className="guesses">{rows}</div>
+      <div className="row row-cols-3">{rows}</div>
 
       <div className="buttons">
         <Button variant="primary" onClick={() => makeGuess("france")}>

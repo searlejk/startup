@@ -4,9 +4,13 @@ import { FlagleGame } from "./flagleGame";
 
 export function Daily(props) {
   return (
-    <main className="bg-secondary">
-      <h1>Daily Flagle</h1>
-      <FlagleGame userName={props.userName} />
+    <main>
+      <div className="flag_banner">
+        <img src="flag_banner.png" alt="flag banner image" />
+      </div>
+      <div className="container text-center">
+        <FlagleGame userName={props.userName} />
+      </div>
     </main>
   );
 }
