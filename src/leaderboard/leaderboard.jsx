@@ -11,6 +11,11 @@ export function Leaderboard() {
     }
   }, []);
 
+  const communityCount = scores.reduce(
+    (total, score) => total + (score.gamesPlayed || 0),
+    0,
+  );
+
   const scoreRows = [];
   if (scores.length) {
     for (const [i, score] of scores.entries()) {
@@ -37,7 +42,7 @@ export function Leaderboard() {
       <div className="flag_banner">
         <img src="flag_banner.png" alt="flag banner image" />
       </div>
-      <h1>Community: 9,347 games played</h1>
+      <h1>Community: {communityCount} games played</h1>
       <table className="table table-dark table-striped">
         <thead className="table-dark">
           <tr>

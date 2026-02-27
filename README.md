@@ -148,10 +148,14 @@ Notes
 [x] - Add score/leaderboard update after each game
 [x] - Make gamesPlayed reset to 0 after logout
 [x] - After user wins, don't let them submit another flag
-[ ] - Make daily visually persist when swapping tabs
-[ ] - Make allowPlayer persist for Daily
-[ ] - Add new game button to Unlimited
-[ ] -
+[x] - Make daily visually persist when swapping tabs
+[x] - Make allowPlayer persist for Daily
+[x] - Implement Unlimited Functionality
+[x] - Add new game button to Unlimited
+[x] - Update Community game count to be accurate
+[ ] - Update the notifications item in Unlimited for spacing but make it disapear
+[ ] - Space out buttons on the main view after logging in
+[ ] - Make Leaderboard sort most games played first
 [ ] -
 
 - [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.

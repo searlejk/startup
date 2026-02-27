@@ -12,9 +12,11 @@ export function FlagleGame(props) {
 
   /// If its a new day, player can play daily again, otherwise load old state ///
   const [allowPlayer, setAllowPlayer] = React.useState(
-    localStorage.getItem(`${userName}lastWinDate`) !==
-      new Date().toLocaleDateString(),
+    isUnlimited ||
+      localStorage.getItem(`${userName}lastWinDate`) !==
+        new Date().toLocaleDateString(),
   );
+
   const [secretFlag, setSecretFlag] = React.useState("france");
   const [guesses, setGuesses] = React.useState(
     JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
@@ -125,8 +127,9 @@ export function FlagleGame(props) {
     }
 
     if (correct) {
+      saveStats(newGuesses.length);
+
       if (!isUnlimited) {
-        saveStats(newGuesses.length);
         winAndFreeze(newGuesses);
         setAllowPlayer(false);
         setWin(true);
@@ -138,7 +141,7 @@ export function FlagleGame(props) {
   }
 
   function winAndFreeze(guesses) {
-    if (isUnlimited) return;
+    // if (isUnlimited) return;
     localStorage.setItem(
       `${userName}lastWinDate`,
       new Date().toLocaleDateString(),

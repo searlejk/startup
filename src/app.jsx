@@ -60,7 +60,10 @@ export default function App() {
             }
           />
           <Route path="/daily" element={<Daily userName={userName} />} />
-          <Route path="/unlimited" element={<Unlimited />} />
+          <Route
+            path="/unlimited"
+            element={<Unlimited userName={userName} />}
+          />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/create_account" element={<CreateAccount />} />
           <Route path="*" element={<NotFound />} />
