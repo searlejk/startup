@@ -16,8 +16,6 @@ export function FlagleGame(props) {
       localStorage.getItem(`${userName}lastWinDate`) !==
         new Date().toLocaleDateString(),
   );
-
-  const [secretFlag, setSecretFlag] = React.useState("france");
   const [guesses, setGuesses] = React.useState(
     JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
   );
@@ -37,18 +35,63 @@ export function FlagleGame(props) {
       name: "France",
       stripes: ["blue", "white", "red"],
     },
+    italy: {
+      name: "Italy",
+      stripes: ["green", "white", "red"],
+    },
+    belgium: {
+      name: "Belgium",
+      stripes: ["black", "yellow", "red"],
+    },
+    ireland: {
+      name: "Ireland",
+      stripes: ["green", "white", "orange"],
+    },
+    romania: {
+      name: "Romania",
+      stripes: ["blue", "yellow", "red"],
+    },
+    chad: {
+      name: "Chad",
+      stripes: ["blue", "yellow", "red"],
+    },
     nigeria: {
       name: "Nigeria",
       stripes: ["green", "white", "green"],
+    },
+    mali: {
+      name: "Mali",
+      stripes: ["green", "yellow", "red"],
+    },
+    guinea: {
+      name: "Guinea",
+      stripes: ["red", "yellow", "green"],
+    },
+    "côte d'ivoire": {
+      name: "Côte d'Ivoire",
+      stripes: ["orange", "white", "green"],
     },
     peru: {
       name: "Peru",
       stripes: ["red", "white", "red"],
     },
+    guatemala: {
+      name: "Guatemala",
+      stripes: ["blue", "white", "blue"],
+    },
   };
 
   const getDayValue = (date) =>
     Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+
+  const [secretFlag, setSecretFlag] = React.useState(() => {
+    if (isUnlimited) {
+      const countryKeys = Object.keys(countries);
+      return countryKeys[Math.floor(Math.random() * countryKeys.length)];
+    } else {
+      return "france";
+    }
+  });
 
   const newRandomFlag = () => {
     const countryKeys = Object.keys(countries);
