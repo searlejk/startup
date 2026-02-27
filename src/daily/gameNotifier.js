@@ -19,7 +19,7 @@ class GameEventNotifier {
   constructor() {
     // Simulate chat messages that will eventually come over WebSocket
     setInterval(() => {
-      const score = Math.floor(Math.random() * 3000);
+      const score = Math.floor(Math.random() * 20);
       const date = new Date().toLocaleDateString();
       const userName = "Eich";
       this.broadcastEvent(userName, GameEvent.End, {

@@ -116,20 +116,22 @@ export function FlagleGame(props) {
       if (todayValue === lastDayValue + 1) {
         // Increment Streak, played yesterday
         localStorage.setItem(
-          "dailyStreak",
-          Number(localStorage.getItem("dailyStreak") || 0) + 1,
+          `${userName}dailyStreak`,
+          Number(localStorage.getItem(`${userName}dailyStreak`) || 0) + 1,
         );
       } else if (todayValue > lastDayValue + 1) {
         // Reset Streak, missed a day
-        localStorage.setItem("dailyStreak", 1);
+        localStorage.setItem(`${userName}dailyStreak`, 1);
       }
     } else {
-      localStorage.setItem("dailyStreak", 1);
+      localStorage.setItem(`${userName}dailyStreak`, 1);
     }
 
     localStorage.setItem("lastDayPlayed", todayValue);
 
-    const dailyStreak = Number(localStorage.getItem("dailyStreak") || 1);
+    const dailyStreak = Number(
+      localStorage.getItem(`${userName}dailyStreak`) || 1,
+    );
 
     const newScore = {
       name: userName,
