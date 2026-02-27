@@ -24,8 +24,10 @@ class GameEventNotifier {
       const userName = "Eich";
       this.broadcastEvent(userName, GameEvent.End, {
         name: userName,
+        country: "USA",
+        dailyStreak: Math.floor(Math.random() * 10),
+        gamesPlayed: Math.floor(Math.random() * 100),
         score: score,
-        date: date,
       });
     }, 5000);
   }

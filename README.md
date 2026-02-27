@@ -140,15 +140,16 @@ Notes
 ## 🚀 React part 2: Reactivity deliverable
 
 Notes
-[ ] - Remove all HTML files that are still in my project
+[x] - Remove all HTML files that are still in my project
 [x] - Only add vertical flag types
 [x] - Add notification for player starting game
 [x] - Add notification for player finishing game
-[ ] - Make the Notification number update correctly
-[ ] - Add score/leaderboard update after each game
+[x] - Make the Notification number update correctly
+[x] - Add score/leaderboard update after each game
+[x] - Make gamesPlayed reset to 0 after logout
 [ ] - Add new game button to Unlimited
 [ ] - Make daily persist when swapping tabs
-[ ] -
+[ ] - After user wins, don't let them submit another flag
 [ ] -
 [ ] -
 

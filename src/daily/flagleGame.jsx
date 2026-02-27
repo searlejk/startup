@@ -80,6 +80,7 @@ export function FlagleGame(props) {
     if (correct) {
       saveStats(guessCount + 1);
     }
+    setGuessCount(guessCount + 1);
 
     const newRow = (
       <>
@@ -98,10 +99,10 @@ export function FlagleGame(props) {
       setRows([rows[0], newRow, ...rows.slice(1)]);
     }
 
-    setGuessCount(guessCount + 1);
     setAllowPlayer(true);
   }
 
+  /// Stats Saving ///
   async function saveStats(guess_count) {
     // Name, Country, Daily Streak, Games Played
 
@@ -128,16 +129,14 @@ export function FlagleGame(props) {
 
     localStorage.setItem("lastDayPlayed", todayValue);
 
-    const gamesPlayed = Number(localStorage.getItem("gamesPlayed") || 0) + 1;
-    localStorage.setItem("gamesPlayed", gamesPlayed);
-
     const dailyStreak = Number(localStorage.getItem("dailyStreak") || 1);
 
     const newScore = {
       name: userName,
       country: "USA",
       dailyStreak: dailyStreak,
-      gamesPlayed: gamesPlayed,
+      gamesPlayed: 1,
+      score: guess_count,
     };
 
     // Let other players know the game has concluded
@@ -146,8 +145,9 @@ export function FlagleGame(props) {
     updateScoresLocal(newScore);
   }
 
+  /// Local Score Keeping ///
   function updateScoresLocal(newScore) {
-    const scoresText = localStorage.getItem("stats");
+    const scoresText = localStorage.getItem("scores");
     let scores = [];
     if (scoresText) {
       scores = JSON.parse(scoresText);
@@ -156,6 +156,8 @@ export function FlagleGame(props) {
     const existingIndex = scores.findIndex((s) => s.name === newScore.name);
 
     if (existingIndex !== -1) {
+      const newGamesPlayed = scores[existingIndex].gamesPlayed + 1;
+      newScore.gamesPlayed = newGamesPlayed;
       scores[existingIndex] = newScore;
     } else {
       let found = false;
@@ -174,11 +176,11 @@ export function FlagleGame(props) {
       if (scores.length > 10) {
         scores.length = 10;
       }
-
-      localStorage.setItem("scores", JSON.stringify(scores));
     }
+    localStorage.setItem("scores", JSON.stringify(scores));
   }
 
+  /// return statement ///
   return (
     <>
       <div className="input-group mb-3">
