@@ -13,7 +13,7 @@ export function Daily(props) {
 
       <NotificationMenu userName={props.userName} />
 
-      <FlagleGame userName={props.userName} />
+      <FlagleGame userName={props.userName} isUnlimited={false} />
     </main>
   );
 }

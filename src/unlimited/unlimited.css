@@ -1,7 +1,3 @@
-nav a[href="/unlimited"][aria-current="page"] {
-  background-color: #216d1c;
-}
-
 #notificationCollapse .card-body {
   display: flex;
   background-color: #1d2b36 !important;
@@ -24,9 +20,18 @@ nav a[href="/unlimited"][aria-current="page"] {
   align-self: flex-end;
   margin-right: 20px;
   width: auto;
+  position: relative;
 }
 
 #notificationCollapse {
-  right: 20;
+  position: absolute;
+  right: 0;
+  top: 100%;
   z-index: 10;
+  min-width: 300px;
+}
+
+.row.row-cols-3 {
+  display: flex;
+  align-items: center;
 }

@@ -3,15 +3,24 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { GameEvent, GameNotifier } from "./gameNotifier";
 import { delay } from "./delay";
+import "./daily.css";
 
 export function FlagleGame(props) {
   const userName = props.userName;
+  const isUnlimited = props.isUnlimited ?? false;
+  const [rows, setRows] = React.useState([]);
+
   /// If its a new day, player can play daily again, otherwise load old state ///
   const [allowPlayer, setAllowPlayer] = React.useState(
     localStorage.getItem(`${userName}lastWinDate`) !==
       new Date().toLocaleDateString(),
   );
-  const [secretFlag] = React.useState("france");
+  const [secretFlag, setSecretFlag] = React.useState("france");
+  const [guesses, setGuesses] = React.useState(
+    JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
+  );
+  const [win, setWin] = React.useState(false);
+
   const [input, setInput] = React.useState("");
   const firstRow = (
     <>
@@ -19,10 +28,6 @@ export function FlagleGame(props) {
       <div className="col">Your Guess</div>
       <div className="col">Result</div>
     </>
-  );
-  const [rows, setRows] = React.useState([]);
-  const [guesses, setGuesses] = React.useState(
-    JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
   );
 
   const countries = {
@@ -43,12 +48,28 @@ export function FlagleGame(props) {
   const getDayValue = (date) =>
     Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
 
+  const newRandomFlag = () => {
+    const countryKeys = Object.keys(countries);
+    const randomKey =
+      countryKeys[Math.floor(Math.random() * countryKeys.length)];
+    setSecretFlag(randomKey);
+  };
+
   /// If player has already won, load old game state ///
-  if (rows.length === 0 && !allowPlayer) {
-    winAndFreeze(guesses);
-  }
+  React.useEffect(() => {
+    if (
+      !isUnlimited &&
+      rows.length === 0 &&
+      !allowPlayer &&
+      guesses.length > 0
+    ) {
+      winAndFreeze(guesses);
+      setWin(true);
+    }
+  }, []);
 
   function checkGuess(guess) {
+    guess = guess.toLowerCase();
     const guessFlag = countries[guess].stripes;
     const trueFlag = countries[secretFlag].stripes;
     const output = [];
@@ -104,13 +125,20 @@ export function FlagleGame(props) {
     }
 
     if (correct) {
-      saveStats(newGuesses.length);
-      winAndFreeze(newGuesses);
-      setAllowPlayer(false);
+      if (!isUnlimited) {
+        saveStats(newGuesses.length);
+        winAndFreeze(newGuesses);
+        setAllowPlayer(false);
+        setWin(true);
+      } else {
+        setWin(true);
+        setAllowPlayer(false);
+      }
     }
   }
 
   function winAndFreeze(guesses) {
+    if (isUnlimited) return;
     localStorage.setItem(
       `${userName}lastWinDate`,
       new Date().toLocaleDateString(),
@@ -210,34 +238,53 @@ export function FlagleGame(props) {
     localStorage.setItem("scores", JSON.stringify(scores));
   }
 
+  function resetGame() {
+    setInput("");
+    newRandomFlag();
+    setGuesses([]);
+    setRows([]);
+    localStorage.removeItem(`${userName}pastGuesses`);
+    setAllowPlayer(true);
+    setWin(false);
+  }
+
   /// return statement ///
   return (
     <>
-      <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter a flag..."
-          aria-label="Enter a flag..."
-          onChange={(e) => setInput(e.target.value)}
-          list="country-options"
-          autoComplete="off"
-          value={input}
-          disabled={!allowPlayer}
-        />
-        <datalist id="country-options">
-          {Object.keys(countries).map((key) => (
-            <option key={key}>{countries[key].name}</option>
-          ))}
-        </datalist>
-        <Button
-          variant="primary"
-          onClick={() => makeGuess(input)}
-          disabled={!allowPlayer}
-        >
-          Submit
-        </Button>
-      </div>
+      {isUnlimited && win ? (
+        <div className="input-group mb-3">
+          <Button variant="primary" onClick={() => resetGame()}>
+            New Game
+          </Button>
+        </div>
+      ) : (
+        /// input group ///
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter a flag..."
+            aria-label="Enter a flag..."
+            onChange={(e) => setInput(e.target.value)}
+            list="country-options"
+            autoComplete="off"
+            value={input}
+            disabled={!allowPlayer}
+          />
+          <datalist id="country-options">
+            {Object.keys(countries).map((key) => (
+              <option key={key}>{countries[key].name}</option>
+            ))}
+          </datalist>
+          <Button
+            variant="primary"
+            onClick={() => makeGuess(input)}
+            disabled={!allowPlayer}
+          >
+            Submit
+          </Button>
+        </div>
+      )}
 
       <div className="container text-center">
         <div className="row row-cols-3">{rows}</div>
