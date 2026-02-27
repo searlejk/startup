@@ -147,9 +147,10 @@ Notes
 [x] - Make the Notification number update correctly
 [x] - Add score/leaderboard update after each game
 [x] - Make gamesPlayed reset to 0 after logout
+[x] - After user wins, don't let them submit another flag
+[ ] - Make daily visually persist when swapping tabs
+[ ] - Make allowPlayer persist for Daily
 [ ] - Add new game button to Unlimited
-[ ] - Make daily persist when swapping tabs
-[ ] - After user wins, don't let them submit another flag
 [ ] -
 [ ] -
 

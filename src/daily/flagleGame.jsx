@@ -71,35 +71,36 @@ export function FlagleGame(props) {
   }
 
   function makeGuess(guess) {
-    guess = guess.toLowerCase();
-    localStorage.setItem("lastGuess", guess);
-    setInput("");
-    const { correct, output } = checkGuess(guess);
-    const feedbackFlag = drawFlag(output);
-    const guessFlag = drawFlag(countries[guess].stripes);
-    if (correct) {
-      saveStats(guessCount + 1);
+    if (allowPlayer) {
+      guess = guess.toLowerCase();
+      localStorage.setItem("lastGuess", guess);
+      setInput("");
+      const { correct, output } = checkGuess(guess);
+      const feedbackFlag = drawFlag(output);
+      const guessFlag = drawFlag(countries[guess].stripes);
+      if (correct) {
+        saveStats(guessCount + 1);
+        setAllowPlayer(false);
+      }
+      setGuessCount(guessCount + 1);
+
+      const newRow = (
+        <>
+          <div className="col">
+            {guess.charAt(0).toUpperCase() + guess.slice(1)}
+          </div>
+          <div className="col">{guessFlag}</div>
+          <div className="col">{feedbackFlag}</div>
+        </>
+      );
+
+      if (rows.length === 0) {
+        GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
+        setRows([firstRow, newRow]);
+      } else {
+        setRows([rows[0], newRow, ...rows.slice(1)]);
+      }
     }
-    setGuessCount(guessCount + 1);
-
-    const newRow = (
-      <>
-        <div className="col">
-          {guess.charAt(0).toUpperCase() + guess.slice(1)}
-        </div>
-        <div className="col">{guessFlag}</div>
-        <div className="col">{feedbackFlag}</div>
-      </>
-    );
-
-    if (rows.length === 0) {
-      GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
-      setRows([firstRow, newRow]);
-    } else {
-      setRows([rows[0], newRow, ...rows.slice(1)]);
-    }
-
-    setAllowPlayer(true);
   }
 
   /// Stats Saving ///
