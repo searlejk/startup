@@ -15,14 +15,6 @@
   color: #ffffff !important;
 }
 
-.collapse_menu {
-  padding-top: 40px;
-  align-self: flex-end;
-  margin-right: 20px;
-  width: auto;
-  position: relative;
-}
-
 #notificationCollapse {
   position: absolute;
   right: 0;

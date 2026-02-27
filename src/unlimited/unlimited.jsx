@@ -11,7 +11,7 @@ export function Unlimited(props) {
         <img src="flag_banner.png" alt="flag banner image" />
       </div>
 
-      {/* <NotificationMenu userName={props.userName} /> */}
+      <div style={{ paddingTop: "79px" }} />
 
       <FlagleGame userName={props.userName} isUnlimited={true} />
     </main>

@@ -153,13 +153,12 @@ Notes
 [x] - Implement Unlimited Functionality
 [x] - Add new game button to Unlimited
 [x] - Update Community game count to be accurate
-[ ] - Update the notifications item in Unlimited for spacing but make it disapear
-[ ] - Space out buttons on the main view after logging in
-[ ] - Make Leaderboard sort most games played first
-[ ] -
+[x] - Update the notifications item in Unlimited for spacing but make it disapear
+[x] - Space out buttons on the main view after logging in
+[x] - Make Leaderboard sort most games played first
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - In my bullet points above you can see a few things. All buttons have been changed to react. I changed over the leaderboard, which updates. I changed over the notifications which update as well as you start or finish a match. The text box as well uses some react.
+- [x] **Hooks** - I used hooks to store and modify data in the game. Specifically I used it most in the flagleGame file. I used it for rows, allowPlayer (like simon), win/setWin, and the user's input.
 
 ## 🚀 Service deliverable
 
