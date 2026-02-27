@@ -6,7 +6,11 @@ import { delay } from "./delay";
 
 export function FlagleGame(props) {
   const userName = props.userName;
-  const [allowPlayer, setAllowPlayer] = React.useState(true);
+  /// If its a new day, player can play daily again, otherwise load old state ///
+  const [allowPlayer, setAllowPlayer] = React.useState(
+    localStorage.getItem(`${userName}lastWinDate`) !==
+      new Date().toLocaleDateString(),
+  );
   const [guessCount, setGuessCount] = React.useState(0);
   const [secretFlag] = React.useState("france");
   const [input, setInput] = React.useState("");
@@ -18,6 +22,10 @@ export function FlagleGame(props) {
     </>
   );
   const [rows, setRows] = React.useState([]);
+  const [guesses, setGuesses] = React.useState(
+    JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
+  );
+
   const countries = {
     france: {
       name: "France",
@@ -33,14 +41,12 @@ export function FlagleGame(props) {
     },
   };
 
-  async function onPressed(input) {
-    if (allowPlayer) {
-      setAllowPlayer(false);
-      const row = returnRow(input);
+  const getDayValue = (date) =>
+    Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
 
-      await delay(1000);
-      return row;
-    }
+  /// If player has already won, load old game state ///
+  if (rows.length === 0 && !allowPlayer) {
+    winAndFreeze(guesses);
   }
 
   function checkGuess(guess) {
@@ -71,44 +77,67 @@ export function FlagleGame(props) {
   }
 
   function makeGuess(guess) {
-    if (allowPlayer) {
-      guess = guess.toLowerCase();
-      localStorage.setItem("lastGuess", guess);
-      setInput("");
-      const { correct, output } = checkGuess(guess);
-      const feedbackFlag = drawFlag(output);
-      const guessFlag = drawFlag(countries[guess].stripes);
-      if (correct) {
-        saveStats(guessCount + 1);
-        setAllowPlayer(false);
-      }
-      setGuessCount(guessCount + 1);
+    if (!allowPlayer) return;
+    guess = guess.toLowerCase();
+    localStorage.setItem("lastGuess", guess);
+    setInput("");
+    const newGuesses = [...guesses, guess];
+    setGuesses(newGuesses);
+    const { correct, output } = checkGuess(guess);
+    const feedbackFlag = drawFlag(output);
+    const guessFlag = drawFlag(countries[guess].stripes);
+    setGuessCount(guessCount + 1);
 
-      const newRow = (
-        <>
-          <div className="col">
-            {guess.charAt(0).toUpperCase() + guess.slice(1)}
-          </div>
-          <div className="col">{guessFlag}</div>
-          <div className="col">{feedbackFlag}</div>
-        </>
-      );
+    const newRow = (
+      <>
+        <div className="col">
+          {guess.charAt(0).toUpperCase() + guess.slice(1)}
+        </div>
+        <div className="col">{guessFlag}</div>
+        <div className="col">{feedbackFlag}</div>
+      </>
+    );
 
-      if (rows.length === 0) {
-        GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
-        setRows([firstRow, newRow]);
-      } else {
-        setRows([rows[0], newRow, ...rows.slice(1)]);
+    if (rows.length === 0) {
+      GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
+      setRows([firstRow, newRow]);
+    } else {
+      setRows([rows[0], newRow, ...rows.slice(1)]);
+    }
+
+    if (correct) {
+      saveStats(guessCount + 1);
+      winAndFreeze(newGuesses);
+      setAllowPlayer(false);
+    }
+  }
+
+  function winAndFreeze(guesses) {
+    localStorage.setItem(
+      `${userName}lastWinDate`,
+      new Date().toLocaleDateString(),
+    );
+    localStorage.setItem(`${userName}pastGuesses`, JSON.stringify(guesses));
+
+    const oldRows = [];
+    if (guesses.length > 0) {
+      oldRows.push(firstRow);
+      for (let i = 0; i < guesses.length; i++) {
+        const g = guesses[guesses.length - 1 - i];
+        const { output } = checkGuess(g);
+        oldRows.push(
+          <div className="col">{g.charAt(0).toUpperCase() + g.slice(1)}</div>,
+          <div className="col">{drawFlag(countries[g].stripes)}</div>,
+          <div className="col">{drawFlag(output)}</div>,
+        );
       }
+      setRows(oldRows);
     }
   }
 
   /// Stats Saving ///
   async function saveStats(guess_count) {
     // Name, Country, Daily Streak, Games Played
-
-    const getDayValue = (date) =>
-      Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
 
     const lastDayValue = Number(localStorage.getItem("lastDayPlayed") || 0);
     const todayValue = getDayValue(new Date());
@@ -196,13 +225,18 @@ export function FlagleGame(props) {
           list="country-options"
           autoComplete="off"
           value={input}
+          disabled={!allowPlayer}
         />
         <datalist id="country-options">
           {Object.keys(countries).map((key) => (
             <option key={key}>{countries[key].name}</option>
           ))}
         </datalist>
-        <Button variant="primary" onClick={() => makeGuess(input)}>
+        <Button
+          variant="primary"
+          onClick={() => makeGuess(input)}
+          disabled={!allowPlayer}
+        >
           Submit
         </Button>
       </div>
