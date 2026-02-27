@@ -11,7 +11,6 @@ export function FlagleGame(props) {
     localStorage.getItem(`${userName}lastWinDate`) !==
       new Date().toLocaleDateString(),
   );
-  const [guessCount, setGuessCount] = React.useState(0);
   const [secretFlag] = React.useState("france");
   const [input, setInput] = React.useState("");
   const firstRow = (
@@ -86,7 +85,6 @@ export function FlagleGame(props) {
     const { correct, output } = checkGuess(guess);
     const feedbackFlag = drawFlag(output);
     const guessFlag = drawFlag(countries[guess].stripes);
-    setGuessCount(guessCount + 1);
 
     const newRow = (
       <>
@@ -106,7 +104,7 @@ export function FlagleGame(props) {
     }
 
     if (correct) {
-      saveStats(guessCount + 1);
+      saveStats(newGuesses.length);
       winAndFreeze(newGuesses);
       setAllowPlayer(false);
     }
