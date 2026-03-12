@@ -171,9 +171,9 @@ Notes
 [x] - Add password encryption
 [x] - Add login stuff (the rest)
 [x] - Add scores/leaderboard stuff
-[ ] - Make game save scores
-[ ] - Make game save country name
-[ ] - Add automatic country assigning from ip address
+[x] - Make game save scores
+[ ] - Use API calls to get flags for leaderboard
+[ ] - Add simple loading animation later
 [ ] -
 [ ] -
 
