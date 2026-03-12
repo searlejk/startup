@@ -81,9 +81,6 @@ export function FlagleGame(props) {
     },
   };
 
-  const getDayValue = (date) =>
-    Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
-
   const [secretFlag, setSecretFlag] = React.useState(() => {
     if (isUnlimited) {
       const countryKeys = Object.keys(countries);
@@ -209,8 +206,7 @@ export function FlagleGame(props) {
 
   /// NEW Stats Saving ///
   async function saveStats(guess_count) {
-    const date = new Date();
-    const stats = { name: userName, score: guess_count, date: date };
+    const stats = { name: userName, score: guess_count };
 
     await fetch("/api/score", {
       method: "POST",

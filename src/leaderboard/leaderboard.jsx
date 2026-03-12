@@ -22,34 +22,9 @@ export function Leaderboard() {
     fetch("/api/scores")
       .then((response) => response.json())
       .then((scores) => {
-        // Unique list of countries
-        const countries = [...new Set(scores.map((s) => s.country || "au"))];
-
-        // Fetch all images in parallel
-        return Promise.all(
-          countries.map((country) =>
-            fetch(
-              `https://flagcdn.com/w40/${country.toLowerCase()}.png`,
-            ).catch(),
-          ),
-
-          // store image w/ country code
-        ).then((flagData) => {
-          const flagMap = {};
-          flagData.forEach(({ country, image }) => {
-            flagMap[country] = image;
-          });
-
-          // Add image back to scores
-          const newScores = scores.map((score) => ({
-            ...score,
-            flagImage: flagMap[score.country || "au"],
-          }));
-
-          setScores(newScores);
-        });
+        setScores(scores);
       });
-  }, []);
+  });
 
   const communityCount = scores.reduce(
     (total, score) => total + (score.gamesPlayed || 0),

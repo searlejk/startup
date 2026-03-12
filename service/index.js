@@ -26,6 +26,9 @@ app.use(express.static("public"));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+const getDayValue = (date) =>
+  Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
+
 // CreateAuth a new user
 apiRouter.post("/auth/create", async (req, res) => {
   if (await findUser("email", req.body.email)) {
@@ -85,9 +88,28 @@ apiRouter.get("/test", (_req, res) => {
 });
 
 // SubmitScore
-apiRouter.post("/score", verifyAuth, (req, res) => {
-  leaderboard = updateScores(req.body);
-  res.send(leaderboard);
+apiRouter.post("/score", verifyAuth, async (req, res) => {
+  const user = await findUser("token", req.cookies[authCookieName]);
+  const today = getDayValue(new Date());
+
+  if (user.lastDayPlayed === today - 1) {
+    user.dailyStreak += 1;
+  } else if (user.lastDayPlayed !== today) {
+    user.dailyStreak = 1;
+  }
+
+  user.gamesPlayed += 1;
+  user.lastDayPlayed = today;
+
+  const newScore = {
+    name: user.email,
+    country: user.country,
+    dailyStreak: user.dailyStreak,
+    gamesPlayed: user.gamesPlayed,
+  };
+
+  leaderboard = updateScores(newScore);
+  res.send(newScore);
 });
 
 // Default error handler
@@ -102,23 +124,13 @@ app.use((_req, res) => {
 
 // updateScores considers a new score for inclusion in the high scores.
 function updateScores(newScore) {
-  let found = false;
-  for (const [i, prevScore] of leaderboard.entries()) {
-    if (newScore.score > prevScore.score) {
-      leaderboard.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    leaderboard.push(newScore);
-  }
-
-  if (leaderboard.length > 10) {
-    leaderboard.length = 10;
-  }
-
+  // replaces old player score
+  leaderboard = leaderboard.filter((s) => s.name !== newScore.name);
+  leaderboard.push(newScore);
+  // sorts
+  leaderboard.sort((a, b) => b.gamesPlayed - a.gamesPlayed);
+  // takes first 10
+  leaderboard = leaderboard.slice(0, 10);
   return leaderboard;
 }
 
@@ -129,6 +141,10 @@ async function createUser(email, password) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
+    lastDayPlayed: 0,
+    dailyStreak: 0,
+    gamesPlayed: 0,
+    country: "USA",
   };
   users.push(user);
 
