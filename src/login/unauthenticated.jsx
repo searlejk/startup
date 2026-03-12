@@ -3,8 +3,11 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { MessageDialog } from "./messageDialog";
 import { useNavigate } from "react-router-dom";
+import BaseComponent from "bootstrap/js/dist/base-component";
 
 export function Unauthenticated(props) {
+  const [mode, setMode] = React.useState("login");
+  const [country, setCountry] = React.useState("au");
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState("");
   const [displayError, setDisplayError] = React.useState(null);
@@ -61,20 +64,55 @@ export function Unauthenticated(props) {
         />
         <label htmlFor="floatingPassword">Password</label>
       </div>
-      <Button
-        variant="primary"
-        onClick={() => loginUser()}
-        disabled={!userName || !password}
-      >
-        Log In
-      </Button>
-      <Button
-        variant="secondary"
-        onClick={() => createUser()}
-        disabled={!userName || !password}
-      >
-        Create
-      </Button>
+      {mode === "create" && (
+        <div className="form-floating">
+          <input
+            className="form-control"
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            placeholder="Country code (e.g. us, au)"
+          />
+          <label>Country</label>
+        </div>
+      )}
+
+      {mode === "login" && (
+        <Button
+          variant="primary"
+          onClick={() => loginUser()}
+          disabled={!userName || !password}
+        >
+          Log In
+        </Button>
+      )}
+
+      {/* show create button only in create mode */}
+      {mode === "create" && (
+        <Button
+          variant="primary"
+          onClick={() => createUser()}
+          disabled={!userName || !password || !country}
+        >
+          Create
+        </Button>
+      )}
+      {mode === "login" && (
+        <p>
+          Need an account?{" "}
+          <a href="#" onClick={() => setMode("create")}>
+            Create Account
+          </a>
+        </p>
+      )}
+      {mode === "create" && (
+        <p>
+          Have an account?{" "}
+          <a href="#" onClick={() => setMode("login")}>
+            Log In
+          </a>
+        </p>
+      )}
 
       <MessageDialog
         message={displayError}
