@@ -174,8 +174,11 @@ Notes
 [x] - Make game save scores
 [x] - Use API calls to get flags for leaderboard
 [x] - Have user input country when creating an account, but not when logging in
-[ ] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing
+[x] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing
+[ ] - add drop down for country code with flags
+[ ] - have my code verify the country code works
 [ ] - Add simple loading animation later
+[ ] -
 [ ] -
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
