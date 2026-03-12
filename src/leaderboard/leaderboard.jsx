@@ -49,11 +49,12 @@ export function Leaderboard() {
           setScores(newScores);
         });
       });
-    const communityCount = scores.reduce(
-      (total, score) => total + (score.gamesPlayed || 0),
-      0,
-    );
   }, []);
+
+  const communityCount = scores.reduce(
+    (total, score) => total + (score.gamesPlayed || 0),
+    0,
+  );
 
   const scoreRows = [];
   if (scores.length) {
