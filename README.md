@@ -166,8 +166,8 @@ Notes
 
 Notes
 [x] - Finish video on how it works
-[ ] - Add Username compatibility/storage
-[ ] - Add password compatibility/storage
+[x] - Add Username compatibility/storage
+[x] - Add password compatibility/storage
 [ ] - Add password encryption
 [ ] - Add login stuff (the rest)
 [ ] - Add scores/leaderboard stuff
