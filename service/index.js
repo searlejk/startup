@@ -149,7 +149,7 @@ async function createUser(email, password) {
     dailyStreak: 0,
     gamesPlayed: 0,
     country: "Australia",
-    countryURL: "https://flagcdn.com/16x12/au.png",
+    countryURL: "https://flagcdn.com/120x90/au.png",
   };
   users.push(user);
 

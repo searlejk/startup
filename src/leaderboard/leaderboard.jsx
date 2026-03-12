@@ -25,12 +25,7 @@ export function Leaderboard() {
           <td>{i + 1}</td>
           <td>{(score.name || "Anonymous").split("@")[0]}</td>
           <td>
-            <img
-              src={score.countryURL}
-              srcSet={`${score.countryURL} 2x, ${score.countryURL} 3x`}
-              height="40"
-              alt={score.country}
-            />
+            <img src={score.countryURL} height="30" alt={score.country} />
           </td>
           <td>{score.dailyStreak || 0}</td>
           <td>{score.gamesPlayed || 0}</td>
