@@ -34,7 +34,11 @@ apiRouter.post("/auth/create", async (req, res) => {
   if (await findUser("email", req.body.email)) {
     res.status(409).send({ msg: "Existing user" });
   } else {
-    const user = await createUser(req.body.email, req.body.password);
+    const user = await createUser(
+      req.body.email,
+      req.body.password,
+      req.body.country,
+    );
 
     setAuthCookie(res, user.token);
     res.send({ email: user.email });
@@ -135,7 +139,7 @@ function updateScores(newScore) {
   return leaderboard;
 }
 
-async function createUser(email, password) {
+async function createUser(email, password, country) {
   const passwordHash = await bcrypt.hash(password, 10);
 
   /// format for getting flag image for country
@@ -148,8 +152,8 @@ async function createUser(email, password) {
     lastDayPlayed: 0,
     dailyStreak: 0,
     gamesPlayed: 0,
-    country: "Australia",
-    countryURL: "https://flagcdn.com/120x90/au.png",
+    country: country,
+    countryURL: `https://flagcdn.com/120x90/${country}.png`,
   };
   users.push(user);
 

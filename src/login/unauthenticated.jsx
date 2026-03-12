@@ -7,7 +7,7 @@ import BaseComponent from "bootstrap/js/dist/base-component";
 
 export function Unauthenticated(props) {
   const [mode, setMode] = React.useState("login");
-  const [country, setCountry] = React.useState("au");
+  const [country, setCountry] = React.useState("us");
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState("");
   const [displayError, setDisplayError] = React.useState(null);
@@ -28,7 +28,11 @@ export function Unauthenticated(props) {
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
       method: "post",
-      body: JSON.stringify({ email: userName, password: password }),
+      body: JSON.stringify({
+        email: userName,
+        password: password,
+        country: country,
+      }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
