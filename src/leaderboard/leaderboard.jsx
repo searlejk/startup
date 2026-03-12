@@ -4,20 +4,6 @@ import "./leaderboard.css";
 export function Leaderboard() {
   const [scores, setScores] = React.useState([]);
 
-  // React.useEffect(() => {
-  //   const scoresText = localStorage.getItem("scores");
-  //   if (scoresText) {
-  //     const parsed = JSON.parse(scoresText);
-  //     parsed.sort((a, b) => (b.gamesPlayed || 0) - (a.gamesPlayed || 0));
-  //     setScores(parsed);
-  //   }
-  // }, []);
-
-  // const communityCount = scores.reduce(
-  //   (total, score) => total + (score.gamesPlayed || 0),
-  //   0,
-  // );
-
   React.useEffect(() => {
     fetch("/api/scores")
       .then((response) => response.json())
@@ -38,7 +24,14 @@ export function Leaderboard() {
         <tr key={i}>
           <td>{i + 1}</td>
           <td>{(score.name || "Anonymous").split("@")[0]}</td>
-          <td>{score.country || "USA"}</td>
+          <td>
+            <img
+              src={score.countryURL}
+              srcSet={`${score.countryURL} 2x, ${score.countryURL} 3x`}
+              height="40"
+              alt={score.country}
+            />
+          </td>
           <td>{score.dailyStreak || 0}</td>
           <td>{score.gamesPlayed || 0}</td>
         </tr>,

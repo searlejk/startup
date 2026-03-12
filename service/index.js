@@ -104,6 +104,7 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
   const newScore = {
     name: user.email,
     country: user.country,
+    countryURL: user.countryURL,
     dailyStreak: user.dailyStreak,
     gamesPlayed: user.gamesPlayed,
   };
@@ -137,6 +138,9 @@ function updateScores(newScore) {
 async function createUser(email, password) {
   const passwordHash = await bcrypt.hash(password, 10);
 
+  /// format for getting flag image for country
+  /// https://flagcdn.com/16x12/ua.png
+
   const user = {
     email: email,
     password: passwordHash,
@@ -144,7 +148,8 @@ async function createUser(email, password) {
     lastDayPlayed: 0,
     dailyStreak: 0,
     gamesPlayed: 0,
-    country: "USA",
+    country: "Australia",
+    countryURL: "https://flagcdn.com/16x12/au.png",
   };
   users.push(user);
 
