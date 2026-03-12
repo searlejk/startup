@@ -168,9 +168,13 @@ Notes
 [x] - Finish video on how it works
 [x] - Add Username compatibility/storage
 [x] - Add password compatibility/storage
-[ ] - Add password encryption
-[ ] - Add login stuff (the rest)
-[ ] - Add scores/leaderboard stuff
+[x] - Add password encryption
+[x] - Add login stuff (the rest)
+[x] - Add scores/leaderboard stuff
+[ ] - Make game save scores
+[ ] - Make game save country name
+[ ] - Add automatic country assigning from ip address
+[ ] -
 [ ] -
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.

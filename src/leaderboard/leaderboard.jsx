@@ -28,9 +28,9 @@ export function Leaderboard() {
         // Fetch all images in parallel
         return Promise.all(
           countries.map((country) =>
-            fetch(`https://flagcdn.com/w40/${country.toLowerCase()}.png`)
-              .then((r) => r.json())
-              .catch(),
+            fetch(
+              `https://flagcdn.com/w40/${country.toLowerCase()}.png`,
+            ).catch(),
           ),
 
           // store image w/ country code
