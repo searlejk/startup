@@ -13,6 +13,14 @@ export function Unauthenticated(props) {
   const [displayError, setDisplayError] = React.useState(null);
   const navigate = useNavigate();
 
+  async function loginUser() {
+    loginOrCreate(`/api/auth/login`);
+  }
+
+  async function createUser() {
+    loginOrCreate("/api/auth/create");
+  }
+
   const countryCodes = [
     "ad",
     "ae",
@@ -265,12 +273,6 @@ export function Unauthenticated(props) {
     "zw",
   ];
   const isValidCountry = countryCodes.includes(country);
-
-  async function createUser() {
-    loginOrCreate("/api/auth/create");
-    // localStorage.setItem("userName", userName);
-    // props.onLogin(userName);
-  }
 
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
