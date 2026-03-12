@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import { Login } from "./login/login";
 import { Daily } from "./daily/daily";
-import { CreateAccount } from "./create_account/create_account";
 import { Leaderboard } from "./leaderboard/leaderboard";
 import { Unlimited } from "./unlimited/unlimited";
 import { AuthState } from "./login/authState";
@@ -103,7 +102,6 @@ export default function App() {
             path="/leaderboard"
             element={isAuthed ? <Leaderboard /> : <Navigate to="/" replace />}
           />
-          {/* <Route path="/create_account" element={<CreateAccount />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
 
