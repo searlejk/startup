@@ -6,17 +6,17 @@ const app = express();
 
 const authCookieName = "token";
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
+// stored in memory
 let users = [];
-let scores = [];
+let leaderboard = [];
 
-// The service port. In production the front-end code is statically hosted by the service on the same port.
+// service port
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
 
-// Use the cookie parser middleware for tracking authentication tokens
+// cookie tracking auth tokens
 app.use(cookieParser());
 
 // Serve up the front-end static content hosting
@@ -62,7 +62,7 @@ apiRouter.delete("/auth/logout", async (req, res) => {
   res.status(204).end();
 });
 
-// Middleware to verify that the user is authorized to call an endpoint
+// Middleware verify auth token
 const verifyAuth = async (req, res, next) => {
   const user = await findUser("token", req.cookies[authCookieName]);
   if (user) {
@@ -75,7 +75,7 @@ const verifyAuth = async (req, res, next) => {
 // GetScores
 apiRouter.get("/scores", verifyAuth, (_req, res) => {
   console.log("scores request");
-  res.send(scores);
+  res.send(leaderboard);
 });
 
 var testdata = { test: "testdata" };
@@ -86,8 +86,8 @@ apiRouter.get("/test", (_req, res) => {
 
 // SubmitScore
 apiRouter.post("/score", verifyAuth, (req, res) => {
-  scores = updateScores(req.body);
-  res.send(scores);
+  leaderboard = updateScores(req.body);
+  res.send(leaderboard);
 });
 
 // Default error handler
@@ -95,7 +95,7 @@ app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
 });
 
-// Return the application's default page if the path is unknown
+// if lost, go to main page
 app.use((_req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
@@ -103,23 +103,23 @@ app.use((_req, res) => {
 // updateScores considers a new score for inclusion in the high scores.
 function updateScores(newScore) {
   let found = false;
-  for (const [i, prevScore] of scores.entries()) {
+  for (const [i, prevScore] of leaderboard.entries()) {
     if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
+      leaderboard.splice(i, 0, newScore);
       found = true;
       break;
     }
   }
 
   if (!found) {
-    scores.push(newScore);
+    leaderboard.push(newScore);
   }
 
-  if (scores.length > 10) {
-    scores.length = 10;
+  if (leaderboard.length > 10) {
+    leaderboard.length = 10;
   }
 
-  return scores;
+  return leaderboard;
 }
 
 async function createUser(email, password) {

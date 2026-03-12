@@ -207,46 +207,22 @@ export function FlagleGame(props) {
     }
   }
 
-  /// Stats Saving ///
+  /// NEW Stats Saving ///
   async function saveStats(guess_count) {
-    // Name, Country, Daily Streak, Games Played
+    const date = new Date();
+    const stats = { name: userName, score: guess_count, date: date };
 
-    const lastDayValue = Number(localStorage.getItem("lastDayPlayed") || 0);
-    const todayValue = getDayValue(new Date());
-
-    if (lastDayValue != 0) {
-      if (todayValue === lastDayValue + 1) {
-        // Increment Streak, played yesterday
-        localStorage.setItem(
-          `${userName}dailyStreak`,
-          Number(localStorage.getItem(`${userName}dailyStreak`) || 0) + 1,
-        );
-      } else if (todayValue > lastDayValue + 1) {
-        // Reset Streak, missed a day
-        localStorage.setItem(`${userName}dailyStreak`, 1);
-      }
-    } else {
-      localStorage.setItem(`${userName}dailyStreak`, 1);
-    }
-
-    localStorage.setItem("lastDayPlayed", todayValue);
-
-    const dailyStreak = Number(
-      localStorage.getItem(`${userName}dailyStreak`) || 1,
-    );
-
-    const newScore = {
-      name: userName,
-      country: "USA",
-      dailyStreak: dailyStreak,
-      gamesPlayed: 1,
-      score: guess_count,
-    };
+    await fetch("/api/score", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(stats),
+    });
 
     // Let other players know the game has concluded
-    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
+    GameNotifier.broadcastEvent(userName, GameEvent.End, stats);
 
-    updateScoresLocal(newScore);
+    // OLD update scores function call
+    // updateScoresLocal(stats);
   }
 
   /// Local Score Keeping ///
