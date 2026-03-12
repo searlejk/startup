@@ -67,10 +67,10 @@ I am going to use the required technologies in the following ways.
 
 ## 🚀 Specification Deliverable
 
-- [x] Proper use of Markdown
-- [x] A concise and compelling elevator pitch
-- [x] Description of key features
-- [x] Description of how you will use each technology
+- [x] Proper use of Markdown.
+- [x] A concise and compelling elevator pitch.
+- [x] Description of key features.
+- [x] Description of how you will use each technology.
 - [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ## 🚀 AWS deliverable
@@ -125,13 +125,13 @@ Notes
 - reading the info regarding the react part 1
 - I am going to store my simon react in a burner folder, so that it is not part of this repository
 - I just deployed the react for simon to my simon.flagle.click website
-  [x] - Sort files
-  [x] - refactor files
-  [x] - install bootstrap
-  [x] - Fix login button
-  [x] - Fix create account button
-  [x] - Fix flag banner image styling later (its in the header now)
-  [x] - Fix footer so it appear correctly
+  [x] - Sort files.
+  [x] - refactor files.
+  [x] - install bootstrap.
+  [x] - Fix login button.
+  [x] - Fix create account button.
+  [x] - Fix flag banner image styling later (its in the header now).
+  [x] - Fix footer so it appear correctly.
 
 - [x] **Bundled using Vite** - I sorted all of my files and used vite so I can preview the files. It also allowed me to tweak my code while previewing the website.
 - [x] **Components** - I have multiple react components. One for each view/page and they use HTML structure and CSS styling.
@@ -140,24 +140,24 @@ Notes
 ## 🚀 React part 2: Reactivity deliverable
 
 Notes
-[x] - Remove all HTML files that are still in my project
-[x] - Only add vertical flag types
-[x] - Add notification for player starting game
-[x] - Add notification for player finishing game
-[x] - Make the Notification number update correctly
-[x] - Add score/leaderboard update after each game
-[x] - Make gamesPlayed reset to 0 after logout
-[x] - After user wins, don't let them submit another flag
-[x] - Make daily visually persist when swapping tabs
-[x] - Make allowPlayer persist for Daily
-[x] - Implement Unlimited Functionality
-[x] - Add new game button to Unlimited
-[x] - Update Community game count to be accurate
-[x] - Update the notifications item in Unlimited for spacing but make it disapear
-[x] - Space out buttons on the main view after logging in
-[x] - Make Leaderboard sort most games played first
-[x] - Add quite a few more flag options
-[x] - Stop Unlimited from being France first
+[x] - Remove all HTML files that are still in my project.
+[x] - Only add vertical flag types.
+[x] - Add notification for player starting game.
+[x] - Add notification for player finishing game.
+[x] - Make the Notification number update correctly.
+[x] - Add score/leaderboard update after each game.
+[x] - Make gamesPlayed reset to 0 after logout.
+[x] - After user wins, don't let them submit another flag.
+[x] - Make daily visually persist when swapping tabs.
+[x] - Make allowPlayer persist for Daily.
+[x] - Implement Unlimited Functionality.
+[x] - Add new game button to Unlimited.
+[x] - Update Community game count to be accurate.
+[x] - Update the notifications item in Unlimited for spacing but make it disapear.
+[x] - Space out buttons on the main view after logging in.
+[x] - Make Leaderboard sort most games played first.
+[x] - Add quite a few more flag options.
+[x] - Stop Unlimited from being France first.
 
 - [x] **All functionality implemented or mocked out** - In my bullet points above you can see a few things. All buttons have been changed to react. I changed over the leaderboard, which updates. I changed over the notifications which update as well as you start or finish a match. The text box as well uses some react.
 - [x] **Hooks** - I used hooks to store and modify data in the game. Specifically I used it most in the flagleGame file. I used it for rows, allowPlayer (like simon), win/setWin, and the user's input.
@@ -165,21 +165,21 @@ Notes
 ## 🚀 Service deliverable
 
 Notes
-[x] - Finish video on how it works
-[x] - Add Username compatibility/storage
-[x] - Add password compatibility/storage
-[x] - Add password encryption
-[x] - Add login stuff (the rest)
-[x] - Add scores/leaderboard stuff
-[x] - Make game save scores
-[x] - Use API calls to get flags for leaderboard
-[x] - Have user input country when creating an account, but not when logging in
-[x] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing
-[x] - add drop down for country code
-[x] - have my code verify the country code works
-[x] - Make create button only work if country code works
-[x] - Make my flag only draw if the country code is in the countryCodes list, otherwise do nothing
-[ ] - Add simple loading animation to leaderboard
+[x] - Finish video on how it works.
+[x] - Add Username compatibility/storage.
+[x] - Add password compatibility/storage.
+[x] - Add password encryption.
+[x] - Add login stuff (the rest).
+[x] - Add scores/leaderboard stuff.
+[x] - Make game save scores.
+[x] - Use API calls to get flags for leaderboard.
+[x] - Have user input country when creating an account, but not when logging in.
+[x] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing.
+[x] - add drop down for country code.
+[x] - have my code verify the country code works.
+[x] - Make create button only work if country code works.
+[x] - Make my flag only draw if the country code is in the countryCodes list, otherwise do nothing.
+[ ] - Add simple loading animation to leaderboard.
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
 - [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
