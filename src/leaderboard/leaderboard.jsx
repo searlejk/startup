@@ -4,19 +4,56 @@ import "./leaderboard.css";
 export function Leaderboard() {
   const [scores, setScores] = React.useState([]);
 
-  React.useEffect(() => {
-    const scoresText = localStorage.getItem("scores");
-    if (scoresText) {
-      const parsed = JSON.parse(scoresText);
-      parsed.sort((a, b) => (b.gamesPlayed || 0) - (a.gamesPlayed || 0));
-      setScores(parsed);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const scoresText = localStorage.getItem("scores");
+  //   if (scoresText) {
+  //     const parsed = JSON.parse(scoresText);
+  //     parsed.sort((a, b) => (b.gamesPlayed || 0) - (a.gamesPlayed || 0));
+  //     setScores(parsed);
+  //   }
+  // }, []);
 
-  const communityCount = scores.reduce(
-    (total, score) => total + (score.gamesPlayed || 0),
-    0,
-  );
+  // const communityCount = scores.reduce(
+  //   (total, score) => total + (score.gamesPlayed || 0),
+  //   0,
+  // );
+
+  React.useEffect(() => {
+    fetch("/api/scores")
+      .then((response) => response.json())
+      .then((scores) => {
+        // Unique list of countries
+        const countries = [...new Set(scores.map((s) => s.country || "au"))];
+
+        // Fetch all images in parallel
+        return Promise.all(
+          countries.map((country) =>
+            fetch(`https://flagcdn.com/w40/${country.toLowerCase()}.png`)
+              .then((r) => r.json())
+              .catch(),
+          ),
+
+          // store image w/ country code
+        ).then((flagData) => {
+          const flagMap = {};
+          flagData.forEach(({ country, image }) => {
+            flagMap[country] = image;
+          });
+
+          // Add image back to scores
+          const newScores = scores.map((score) => ({
+            ...score,
+            flagImage: flagMap[score.country || "au"],
+          }));
+
+          setScores(newScores);
+        });
+      });
+    const communityCount = scores.reduce(
+      (total, score) => total + (score.gamesPlayed || 0),
+      0,
+    );
+  }, []);
 
   const scoreRows = [];
   if (scores.length) {
