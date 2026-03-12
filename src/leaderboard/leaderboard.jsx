@@ -24,7 +24,7 @@ export function Leaderboard() {
       .then((scores) => {
         setScores(scores);
       });
-  });
+  }, []);
 
   const communityCount = scores.reduce(
     (total, score) => total + (score.gamesPlayed || 0),
