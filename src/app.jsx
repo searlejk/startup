@@ -2,7 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.css";
 
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  NavLink,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { Login } from "./login/login";
 import { Daily } from "./daily/daily";
 import { CreateAccount } from "./create_account/create_account";
@@ -19,6 +25,8 @@ export default function App() {
     : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
+  const isAuthed = authState === AuthState.Authenticated;
+
   return (
     <BrowserRouter>
       <div className="body bg-dark text-light">
@@ -33,13 +41,25 @@ export default function App() {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="daily">Daily</NavLink>
+                {isAuthed ? (
+                  <NavLink to="daily">Daily</NavLink>
+                ) : (
+                  <span className="nav-disabled">Daily</span>
+                )}
               </li>
               <li>
-                <NavLink to="unlimited">Unlimited</NavLink>
+                {isAuthed ? (
+                  <NavLink to="unlimited">Unlimited</NavLink>
+                ) : (
+                  <span className="nav-disabled">Unlimited</span>
+                )}
               </li>
               <li>
-                <NavLink to="leaderboard">Leaderboard</NavLink>
+                {isAuthed ? (
+                  <NavLink to="leaderboard">Leaderboard</NavLink>
+                ) : (
+                  <span className="nav-disabled">Leaderboard</span>
+                )}
               </li>
             </ul>
           </nav>
@@ -59,13 +79,31 @@ export default function App() {
               />
             }
           />
-          <Route path="/daily" element={<Daily userName={userName} />} />
+          <Route
+            path="/daily"
+            element={
+              isAuthed ? (
+                <Daily userName={userName} />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
           <Route
             path="/unlimited"
-            element={<Unlimited userName={userName} />}
+            element={
+              isAuthed ? (
+                <Unlimited userName={userName} />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
           />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/create_account" element={<CreateAccount />} />
+          <Route
+            path="/leaderboard"
+            element={isAuthed ? <Leaderboard /> : <Navigate to="/" replace />}
+          />
+          {/* <Route path="/create_account" element={<CreateAccount />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
 

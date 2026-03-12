@@ -172,9 +172,10 @@ Notes
 [x] - Add login stuff (the rest)
 [x] - Add scores/leaderboard stuff
 [x] - Make game save scores
-[ ] - Use API calls to get flags for leaderboard
+[x] - Use API calls to get flags for leaderboard
+[x] - Have user input country when creating an account, but not when logging in
+[ ] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing
 [ ] - Add simple loading animation later
-[ ] -
 [ ] -
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
