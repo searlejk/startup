@@ -165,7 +165,7 @@ Notes
 
 ## 🚀 Service deliverable
 
-Notes
+# Notes
 
 - [x] Finish video on how it works.
 - [x] Add Username compatibility/storage.
@@ -182,6 +182,8 @@ Notes
 - [x] Make create button only work if country code works.
 - [x] Make my flag only draw if the country code is in the countryCodes list, otherwise do nothing.
 - [ ] Add simple loading animation to leaderboard.
+
+# Requirements
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
 - [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
