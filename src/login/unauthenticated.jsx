@@ -264,6 +264,7 @@ export function Unauthenticated(props) {
     "zm",
     "zw",
   ];
+  const isValidCountry = countryCodes.includes(country);
 
   async function createUser() {
     loginOrCreate("/api/auth/create");
@@ -332,7 +333,7 @@ export function Unauthenticated(props) {
             </datalist>
             <label>Country</label>
           </div>
-          {country.length > 1 && country.length < 3 && (
+          {country.length > 1 && country.length < 3 && isValidCountry && (
             <img
               src={`https://flagcdn.com/120x90/${country}.png`}
               alt={country}
@@ -360,7 +361,7 @@ export function Unauthenticated(props) {
         <Button
           variant="primary"
           onClick={() => createUser()}
-          disabled={!userName || !password || !country}
+          disabled={!userName || !password || !isValidCountry}
         >
           Create
         </Button>

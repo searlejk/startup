@@ -175,10 +175,11 @@ Notes
 [x] - Use API calls to get flags for leaderboard
 [x] - Have user input country when creating an account, but not when logging in
 [x] - Make it impossible to select tab unless logged in, or created account. Once logged out do that same thing
-[ ] - add drop down for country code with flags
-[ ] - have my code verify the country code works
-[ ] - Add simple loading animation later
-[ ] -
+[x] - add drop down for country code
+[x] - have my code verify the country code works
+[x] - Make create button only work if country code works
+[x] - Make my flag only draw if the country code is in the countryCodes list, otherwise do nothing
+[ ] - Add simple loading animation to leaderboard
 [ ] -
 
 - [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
