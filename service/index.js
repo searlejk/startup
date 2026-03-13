@@ -85,11 +85,11 @@ apiRouter.get("/scores", verifyAuth, (_req, res) => {
   res.send(leaderboard);
 });
 
-var testdata = { test: "testdata" };
-apiRouter.get("/test", (_req, res) => {
-  console.log("In Test");
-  res.send(testdata);
-});
+// var testdata = { test: "testdata" };
+// apiRouter.get("/test", (_req, res) => {
+//   console.log("In Test");
+//   res.send(testdata);
+// });
 
 // SubmitScore
 apiRouter.post("/score", verifyAuth, async (req, res) => {

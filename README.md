@@ -185,11 +185,11 @@ Notes
 
 # Requirements
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I specifically store country name and then build a url out of it to use for my API call later.
+- [x] **Static middleware for frontend** - I verify my auth token with middleware.
+- [x] **Calls to third party endpoints** - I use my third party call for the flags in the leaderboard section. This allows for flags to be drawn for each user who is on the leaderboard dynamically based on their profile's country of choice. I used flagcdn specifically.
+- [x] **Backend service endpoints** - I used all of the simple ones from simon, but I adapted many of them. The most different is score, this is because my score data needed to be stored with more information and be calculated out after each post.
+- [x] **Frontend calls service endpoints** - I did this, specifically my create account needed to include the user's country. I added a drop down menu and also a flag that is generated based on the users input.
 - [x] **Supports registration, login, logout, and restricted endpoint** - Relying heavily on Simon logic, I got registration, login, logout and restricted endpoints to work.
 
 ## 🚀 DB deliverable
