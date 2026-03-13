@@ -45,6 +45,7 @@ export function Leaderboard() {
       <div className="flag_banner">
         <img src="flag_banner.png" alt="flag banner image" />
       </div>
+
       <h1>Community: {communityCount} games played</h1>
       <table className="table table-dark table-striped">
         <thead className="table-dark">
