@@ -198,13 +198,12 @@ Notes
 - [x] Deploy simon to my website
 - [x] Leaderboard stored in MongoDB
 - [x] Add the daily flag to be in the database
-- [x] Store the flag answer for unlimited in the database
 
 # Notes:
 
 - to run the server, I need to do node index.js & npm run dev
 
-- [x] **Stores data in MongoDB** - The leaderboard is stored in MongoDB. The dailyFlag is stored in MongoDB and also the unlimited flag answer.
+- [x] **Stores data in MongoDB** - The leaderboard is stored in MongoDB. The dailyFlag is stored in MongoDB.
 - [x] **Stores credentials in MongoDB** - The credentials are stored in MongoDB under user. This hashes the password and uses the input username. It stores additional data as well, such as the leaderboard stats, daily streak, games played
 
 ## 🚀 WebSocket deliverable
