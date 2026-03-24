@@ -1,4 +1,4 @@
 .vscode
 node_modules
 service/node_modules
-dbConfig.json
+service/dbConfig.json
