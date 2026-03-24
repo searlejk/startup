@@ -43,10 +43,6 @@ async function updateUserRemoveAuth(user) {
   );
 }
 
-async function addScore(score) {
-  return scoreCollection.insertOne(score);
-}
-
 function getHighScores() {
   const user = {
     name: "$email",
@@ -74,7 +70,6 @@ module.exports = {
   addUser,
   updateUser,
   updateUserRemoveAuth,
-  addScore,
   getHighScores,
   close,
 };

@@ -98,6 +98,8 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
   user.gamesPlayed += 1;
   user.lastDayPlayed = today;
 
+  await DB.updateUser(user);
+
   const newScore = {
     name: user.email,
     country: user.country,
@@ -106,9 +108,6 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
     gamesPlayed: user.gamesPlayed,
   };
 
-  await DB.updateUser(user);
-
-  await updateScores(newScore);
   res.send(newScore);
 });
 
@@ -121,19 +120,6 @@ app.use(function (err, req, res, next) {
 app.use((_req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
-
-// updateScores considers a new score for inclusion in the high scores.
-async function updateScores(newScore) {
-  let leaderboard = await DB.getHighScores();
-  // replaces old player score
-  leaderboard = leaderboard.filter((s) => s.name !== newScore.name);
-  leaderboard.push(newScore);
-  // sorts
-  leaderboard.sort((a, b) => b.gamesPlayed - a.gamesPlayed);
-  // takes first 10
-  leaderboard = leaderboard.slice(0, 10);
-  return leaderboard;
-}
 
 async function createUser(email, password, country) {
   const passwordHash = await bcrypt.hash(password, 10);

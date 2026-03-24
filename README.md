@@ -196,16 +196,16 @@ Notes
 ## 🚀 DB deliverable
 
 - [x] Deploy simon to my website
+- [x] Leaderboard stored in MongoDB
 - [ ] Add the daily flag to be in the database
 - [ ] Store the flag answer for unlimited in the database
-- [ ]
 
 # Notes:
 
 - to run the server, I need to do node index.js & npm run dev
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - The leaderboard is stored in MongoDB.
+- [x] **Stores credentials in MongoDB** - The credentials are stored in MongoDB under user. This hashes the password and uses the input username. It stores additional data as well.
 
 ## 🚀 WebSocket deliverable
 
