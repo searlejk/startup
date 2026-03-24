@@ -195,6 +195,8 @@ Notes
 
 ## 🚀 DB deliverable
 
+- [x] Deploy simon to my website
+
 - [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
 - [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
 
