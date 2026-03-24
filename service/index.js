@@ -27,6 +27,21 @@ app.use(`/api`, apiRouter);
 const getDayValue = (date) =>
   Math.floor(date.getTime() / (1000 * 60 * 60 * 24));
 
+const countries = [
+  "France",
+  "Italy",
+  "Belgium",
+  "Ireland",
+  "Romania",
+  "Chad",
+  "Nigeria",
+  "Mali",
+  "Guinea",
+  "Côte d'Ivoire",
+  "Peru",
+  "Guatemala",
+];
+
 // CreateAuth token for a new user
 apiRouter.post("/auth/create", async (req, res) => {
   if (await findUser("email", req.body.email)) {
@@ -77,6 +92,18 @@ const verifyAuth = async (req, res, next) => {
     res.status(401).send({ msg: "Unauthorized" });
   }
 };
+
+// GetDailyFlag
+apiRouter.get("/dailyFlag", verifyAuth, async (req, res) => {
+  const todayStr = getDayValue(new Date()).toString();
+  let dailyFlag = await DB.getDailyFlag(todayStr);
+  if (!dailyFlag) {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    const randomFlag = countries[randomIndex];
+    dailyFlag = await DB.setDailyFlag(todayStr, randomFlag);
+  }
+  res.send(dailyFlag);
+});
 
 // GetScores
 apiRouter.get("/scores", verifyAuth, async (req, res) => {

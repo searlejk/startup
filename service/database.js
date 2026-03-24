@@ -43,6 +43,18 @@ async function updateUserRemoveAuth(user) {
   );
 }
 
+async function setDailyFlag(dateStr, flag) {
+  const dailyFlag = { date: dateStr, flag: flag };
+  await db
+    .collection("dailyFlag")
+    .updateOne({ date: dateStr }, { $set: dailyFlag }, { upsert: true });
+  return dailyFlag;
+}
+
+async function getDailyFlag(dateStr) {
+  return db.collection("dailyFlag").findOne({ date: dateStr });
+}
+
 function getHighScores() {
   const user = {
     name: "$email",
@@ -72,4 +84,6 @@ module.exports = {
   updateUserRemoveAuth,
   getHighScores,
   close,
+  getDailyFlag,
+  setDailyFlag,
 };

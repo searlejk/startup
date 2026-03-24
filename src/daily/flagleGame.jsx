@@ -81,21 +81,24 @@ export function FlagleGame(props) {
     },
   };
 
+  // ["France","Italy","Belgium","Ireland","Romania","Chad","Nigeria","Mali","Guinea","Côte d'Ivoire","Peru","Guatemala"]
+
   const [secretFlag, setSecretFlag] = React.useState(() => {
     if (isUnlimited) {
-      const countryKeys = Object.keys(countries);
-      return countryKeys[Math.floor(Math.random() * countryKeys.length)];
+      return newRandomFlag();
     } else {
-      return "france";
+      const dailyFlag = localStorage.getItem("dailyFlag");
+      console.log("Loading daily flag...dailyFlag=", dailyFlag);
+      return dailyFlag.toLowerCase();
     }
   });
 
-  const newRandomFlag = () => {
+  function newRandomFlag() {
     const countryKeys = Object.keys(countries);
     const randomKey =
       countryKeys[Math.floor(Math.random() * countryKeys.length)];
-    setSecretFlag(randomKey);
-  };
+    return randomKey;
+  }
 
   /// If player has already won, load old game state ///
   React.useEffect(() => {
@@ -205,27 +208,31 @@ export function FlagleGame(props) {
   }
 
   /// NEW Stats Saving ///
-  async function saveStats(guess_count) {
-    const stats = { name: userName, score: guess_count };
+  async function saveStats(score) {
+    const date = new Date().toLocaleDateString();
+    const newScore = { name: userName, score: score, date: date };
 
     await fetch("/api/score", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(stats),
+      body: JSON.stringify(newScore),
     });
 
     // Let other players know the game has concluded
-    GameNotifier.broadcastEvent(userName, GameEvent.End, stats);
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
   }
 
   function resetGame() {
     setInput("");
-    newRandomFlag();
     setGuesses([]);
     setRows([]);
     localStorage.removeItem(`${userName}pastGuesses`);
     setAllowPlayer(true);
     setWin(false);
+
+    if (isUnlimited) {
+      setSecretFlag(newRandomFlag());
+    }
   }
 
   /// return statement ///

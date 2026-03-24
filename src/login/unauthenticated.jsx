@@ -287,6 +287,14 @@ export function Unauthenticated(props) {
       },
     });
     if (response?.status === 200) {
+      const flagResponse = await fetch("/api/dailyFlag");
+      if (flagResponse.ok) {
+        const dailyFlag = await flagResponse.json();
+        localStorage.setItem("dailyFlag", dailyFlag.flag);
+      } else {
+        console.error("Could not find daily flag");
+      }
+
       localStorage.setItem("userName", userName);
       props.onLogin(userName);
     } else {
