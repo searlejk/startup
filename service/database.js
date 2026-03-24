@@ -57,6 +57,10 @@ function getHighScores() {
   return cursor.toArray();
 }
 
+function close() {
+  return client.close();
+}
+
 module.exports = {
   getUser,
   getUserByToken,
@@ -65,4 +69,5 @@ module.exports = {
   updateUserRemoveAuth,
   addScore,
   getHighScores,
+  close,
 };

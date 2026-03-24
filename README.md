@@ -196,6 +196,13 @@ Notes
 ## 🚀 DB deliverable
 
 - [x] Deploy simon to my website
+- [ ] Add the daily flag to be in the database
+- [ ] Store the flag answer for unlimited in the database
+- [ ]
+
+# Notes:
+
+- to run the server, I need to do node index.js & npm run dev
 
 - [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
 - [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
