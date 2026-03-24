@@ -216,44 +216,6 @@ export function FlagleGame(props) {
 
     // Let other players know the game has concluded
     GameNotifier.broadcastEvent(userName, GameEvent.End, stats);
-
-    // OLD update scores function call
-    // updateScoresLocal(stats);
-  }
-
-  /// Local Score Keeping ///
-  function updateScoresLocal(newScore) {
-    const scoresText = localStorage.getItem("scores");
-    let scores = [];
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-
-    const existingIndex = scores.findIndex((s) => s.name === newScore.name);
-
-    if (existingIndex !== -1) {
-      const newGamesPlayed = scores[existingIndex].gamesPlayed + 1;
-      newScore.gamesPlayed = newGamesPlayed;
-      scores[existingIndex] = newScore;
-    } else {
-      let found = false;
-      for (const [i, prevScore] of scores.entries()) {
-        if (newScore.gamesPlayed > prevScore.gamesPlayed) {
-          scores.splice(i, 0, newScore);
-          found = true;
-          break;
-        }
-      }
-
-      if (!found) {
-        scores.push(newScore);
-      }
-
-      if (scores.length > 10) {
-        scores.length = 10;
-      }
-    }
-    localStorage.setItem("scores", JSON.stringify(scores));
   }
 
   function resetGame() {

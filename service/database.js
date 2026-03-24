@@ -48,12 +48,19 @@ async function addScore(score) {
 }
 
 function getHighScores() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
+  const user = {
+    name: "$email",
+    countryURL: 1,
+    dailyStreak: 1,
+    gamesPlayed: 1,
   };
-  const cursor = scoreCollection.find(query, options);
+
+  const cursor = userCollection
+    .find()
+    .sort({ gamesPlayed: -1 })
+    .limit(10)
+    .project(user);
+
   return cursor.toArray();
 }
 

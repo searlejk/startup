@@ -106,7 +106,9 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
     gamesPlayed: user.gamesPlayed,
   };
 
-  const leaderboard = await updateScores(newScore);
+  await DB.updateUser(user);
+
+  await updateScores(newScore);
   res.send(newScore);
 });
 
@@ -122,7 +124,7 @@ app.use((_req, res) => {
 
 // updateScores considers a new score for inclusion in the high scores.
 async function updateScores(newScore) {
-  const leaderboard = await DB.getHighScores();
+  let leaderboard = await DB.getHighScores();
   // replaces old player score
   leaderboard = leaderboard.filter((s) => s.name !== newScore.name);
   leaderboard.push(newScore);
