@@ -7,8 +7,7 @@ const DB = require("./database.js");
 
 const authCookieName = "token";
 
-// The service port may be set on the command line
-// This may need to be 4000 if something breaks
+// The service port may be set on the command line or defaults to 4000
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
@@ -150,8 +149,6 @@ app.use((_req, res) => {
 
 async function createUser(email, password, country) {
   const passwordHash = await bcrypt.hash(password, 10);
-
-  /// format for getting flag image for country
   /// https://flagcdn.com/16x12/ua.png
 
   const user = {
