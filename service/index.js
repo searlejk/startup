@@ -99,8 +99,8 @@ apiRouter.get("/dailyFlag", verifyAuth, async (req, res) => {
   let dailyFlag = await DB.getDailyFlag(todayStr);
   if (!dailyFlag) {
     const randomIndex = Math.floor(Math.random() * countries.length);
-    const randomFlag = countries[randomIndex];
-    dailyFlag = await DB.setDailyFlag(todayStr, randomFlag);
+    const randomCountryName = countries[randomIndex];
+    dailyFlag = await DB.setDailyFlag(todayStr, randomCountryName);
   }
   res.send(dailyFlag);
 });
