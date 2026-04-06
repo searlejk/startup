@@ -217,8 +217,8 @@ Notes
 # Notes
 
 - [x] Deploy Simon
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [x] Get Simon Example working on my website
+- [ ] Tweak notifications to match my website
+- [ ] Explore potential new notifications
+- [ ] Explore adding more data to notifications, such as new daily streak
 - [ ]

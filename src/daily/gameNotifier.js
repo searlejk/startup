@@ -2,6 +2,8 @@ const GameEvent = {
   System: "system",
   End: "gameEnd",
   Start: "gameStart",
+  Dstart: "dailyStart",
+  Ustart: "unlimitedStart",
 };
 
 class EventMessage {
