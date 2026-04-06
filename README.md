@@ -224,10 +224,10 @@ Notes
 - [x] Fix the unlimited messages to be correct
 - [x] Remove the phantom simonconnected message
 - [x] Fix repeating messages
-- [ ] Fix scores not clearing from daily to unlimited
+- [x] Fix scores not clearing from daily to unlimited
+- [x] Tweak notifications to match my website
+- [x] Explore potential new notifications
 
 - [ ] Add feature that mentions the daily streak of the individual
-- [ ] Tweak notifications to match my website
-- [ ] Explore potential new notifications
 - [ ] Explore adding more data to notifications, such as new daily streak
 - [ ]
