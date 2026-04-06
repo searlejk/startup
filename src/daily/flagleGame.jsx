@@ -16,9 +16,16 @@ export function FlagleGame(props) {
       localStorage.getItem(`${userName}lastWinDate`) !==
         new Date().toLocaleDateString(),
   );
-  const [guesses, setGuesses] = React.useState(
-    JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [],
-  );
+  /// My code now correctly clears the old game state if going daily to unlimited ///
+  const [guesses, setGuesses] = React.useState(() => {
+    if (isUnlimited) return [];
+    const wonToday =
+      localStorage.getItem(`${userName}lastWinDate`) ===
+      new Date().toLocaleDateString();
+    return wonToday
+      ? (JSON.parse(localStorage.getItem(`${userName}pastGuesses`)) ?? [])
+      : [];
+  });
   const [win, setWin] = React.useState(false);
 
   const [input, setInput] = React.useState("");
