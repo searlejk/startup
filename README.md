@@ -222,8 +222,10 @@ Notes
 - [x] Fix unlimited start and end messages (text)
 - [x] Fix unlimited score number (its wrong now somehow)
 - [x] Fix the unlimited messages to be correct
+- [x] Remove the phantom simonconnected message
+- [x] Fix repeating messages
+- [ ] Fix scores not clearing from daily to unlimited
 
-- [ ] Remove the phantom simonconnected message
 - [ ] Add feature that mentions the daily streak of the individual
 - [ ] Tweak notifications to match my website
 - [ ] Explore potential new notifications
