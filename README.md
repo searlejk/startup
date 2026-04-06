@@ -213,3 +213,12 @@ Notes
 - [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
 - [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
 - [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+
+# Notes
+
+- [ ] Deploy Simon
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
