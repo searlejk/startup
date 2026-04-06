@@ -21,6 +21,9 @@ export function NotificationMenu(props) {
   }, []);
 
   function handleGameEvent(event) {
+    if (event.type === GameEvent.System) {
+      return;
+    }
     setCount((prevEvents) => prevEvents + 1);
 
     setEvent((prevEvents) => {
