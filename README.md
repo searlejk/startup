@@ -216,7 +216,7 @@ Notes
 
 # Notes
 
-- [ ] Deploy Simon
+- [x] Deploy Simon
 - [ ]
 - [ ]
 - [ ]

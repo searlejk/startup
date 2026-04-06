@@ -2,8 +2,6 @@ const GameEvent = {
   System: "system",
   End: "gameEnd",
   Start: "gameStart",
-  Dstart: "dailyStart",
-  Ustart: "unlimitedStart",
 };
 
 class EventMessage {
@@ -19,24 +17,32 @@ class GameEventNotifier {
   handlers = [];
 
   constructor() {
-    // Simulate chat messages that will eventually come over WebSocket
-    setInterval(() => {
-      const score = Math.floor(Math.random() * 20);
-      const date = new Date().toLocaleDateString();
-      const userName = "Eich";
-      this.broadcastEvent(userName, GameEvent.End, {
-        name: userName,
-        country: "USA",
-        dailyStreak: Math.floor(Math.random() * 10),
-        gamesPlayed: Math.floor(Math.random() * 100),
-        score: score,
-      });
-    }, 5000);
+    let port = window.location.port;
+    const protocol = window.location.protocol === "http:" ? "ws" : "wss";
+    this.socket = new WebSocket(
+      `${protocol}://${window.location.hostname}:${port}/ws`,
+    );
+    this.socket.onopen = (event) => {
+      this.receiveEvent(
+        new EventMessage("Simon", GameEvent.System, { msg: "connected" }),
+      );
+    };
+    this.socket.onclose = (event) => {
+      this.receiveEvent(
+        new EventMessage("Simon", GameEvent.System, { msg: "disconnected" }),
+      );
+    };
+    this.socket.onmessage = async (msg) => {
+      try {
+        const event = JSON.parse(await msg.data.text());
+        this.receiveEvent(event);
+      } catch {}
+    };
   }
 
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
 
   addHandler(handler) {
@@ -50,8 +56,10 @@ class GameEventNotifier {
   receiveEvent(event) {
     this.events.push(event);
 
-    this.handlers.forEach((handler) => {
-      handler(event);
+    this.events.forEach((e) => {
+      this.handlers.forEach((handler) => {
+        handler(e);
+      });
     });
   }
 }
