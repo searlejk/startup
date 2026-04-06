@@ -36,12 +36,14 @@ export function NotificationMenu(props) {
     const messageArray = [];
     for (const [i, event] of events.entries()) {
       let message = "unknown";
-      if (event.type === GameEvent.End) {
-        message = ` got the daily flagle in ${event.value.score} guesses`;
-      } else if (event.type === GameEvent.Dstart) {
+      if (event.type === GameEvent.Dstart) {
         message = ` started the daily flagle`;
       } else if (event.type === GameEvent.Ustart) {
         message = ` started an unlimited flagle`;
+      } else if (event.type === GameEvent.Dend) {
+        message = ` got the daily flagle in ${event.value.score} guesses`;
+      } else if (event.type === GameEvent.Uend) {
+        message = ` got the unlimited flagle in ${event.value.score} guesses`;
       } else if (event.type === GameEvent.System) {
         message = event.value.msg;
       }

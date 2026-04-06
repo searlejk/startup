@@ -218,6 +218,13 @@ Notes
 
 - [x] Deploy Simon
 - [x] Get Simon Example working on my website
+- [x] Double check it works for unlimited notifications as well
+- [x] Fix unlimited start and end messages (text)
+- [ ] Fix unlimited score number (its wrong now somehow)
+- [ ] Fix the unlimited messages to be correct
+
+- [ ] Remove the phantom simonconnected message
+- [ ] Add feature that mentions the daily streak of the individual
 - [ ] Tweak notifications to match my website
 - [ ] Explore potential new notifications
 - [ ] Explore adding more data to notifications, such as new daily streak

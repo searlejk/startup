@@ -162,8 +162,11 @@ export function FlagleGame(props) {
       </>
     );
 
-    if (rows.length === 0) {
+    if (rows.length === 0 && !isUnlimited) {
       GameNotifier.broadcastEvent(userName, GameEvent.Dstart, {});
+      setRows([firstRow, newRow]);
+    } else if (rows.length === 0 && isUnlimited) {
+      GameNotifier.broadcastEvent(userName, GameEvent.Ustart, {});
       setRows([firstRow, newRow]);
     } else {
       setRows([rows[0], newRow, ...rows.slice(1)]);
@@ -219,7 +222,11 @@ export function FlagleGame(props) {
     });
 
     // Let other players know the game has concluded
-    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
+    if (!isUnlimited) {
+      GameNotifier.broadcastEvent(userName, GameEvent.Dend, newScore);
+    } else {
+      GameNotifier.broadcastEvent(userName, GameEvent.Uend, newScore);
+    }
   }
 
   function resetGame() {

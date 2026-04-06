@@ -1,6 +1,7 @@
 const GameEvent = {
   System: "system",
-  End: "gameEnd",
+  Dend: "dailyEnd",
+  Uend: "unlimitedEnd",
   Start: "gameStart",
   Dstart: "dailyStart",
   Ustart: "unlimitedStart",
