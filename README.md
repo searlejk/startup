@@ -208,11 +208,11 @@ Notes
 
 ## 🚀 WebSocket deliverable
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - It is created in peerProxy, and I attatch it to my server at the end of index.js. It receives messages and displays them.
+- [x] **Frontend makes WebSocket connection** - It is created in gameNotifier. income messages are
+- [x] **Data sent over WebSocket connection** - Messages are sent through websocket to other players who are also playing flagle. I only display these messages on the daily screen when the user clicks on the notification button (as part of the design).
+- [x] **WebSocket data displayed** - This is displayed on the daily screen. if you press notifications it will display them as they come in. It has notifications for starting and ending daily or unlimited games. You do not get your own notifications, as part of the design.
+- [x] **Application is fully functional** - Yes, the whole application is fully functional and works from start to finish
 
 # Notes
 
@@ -227,7 +227,3 @@ Notes
 - [x] Fix scores not clearing from daily to unlimited
 - [x] Tweak notifications to match my website
 - [x] Explore potential new notifications
-
-- [ ] Add feature that mentions the daily streak of the individual
-- [ ] Explore adding more data to notifications, such as new daily streak
-- [ ]
