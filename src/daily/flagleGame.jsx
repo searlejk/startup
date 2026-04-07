@@ -2,7 +2,6 @@ import React from "react";
 
 import { Button } from "react-bootstrap";
 import { GameEvent, GameNotifier } from "./gameNotifier";
-import { delay } from "./delay";
 import "./daily.css";
 
 export function FlagleGame(props) {
